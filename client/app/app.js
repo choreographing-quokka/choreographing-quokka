@@ -1,4 +1,5 @@
 var app = angular.module('app', [
+  'rollercost.userSubmission',
   'ngRoute'
 ]);
 
