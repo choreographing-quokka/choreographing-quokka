@@ -4,7 +4,8 @@ angular.module('rollercost.auth', [])
   $scope.user = {};
 
   $scope.signin = function () {
-    Auth.signin($scope.user)
+    // use sendOff function to send to backend
+    $scope.sendOff($scope.user, 'signin')
       .then(function (token) {
         $window.localStorage.setItem('com.rollercost', token);
         $location.path('/home');
@@ -15,7 +16,7 @@ angular.module('rollercost.auth', [])
   };
 
   $scope.signup = function () {
-    Auth.signup($scope.user)
+    $scope.sendOff($scope.user, 'signup')
       .then(function (token) {
         $window.localStorage.setItem('com.rollercost', token);
         $location.path('/home');
@@ -24,4 +25,17 @@ angular.module('rollercost.auth', [])
         console.error(error);
       });
   };
+
+  // function used by both above methods to send http request off to server
+  $scope.sendOff = function(user, reqType) {
+    var endPoint = reqType === 'signin' ? '/signin' : 'signup';
+    return $http({
+      method: 'POST',
+      url: endPoint,
+      data: user
+    })
+    .then(function (resp) {
+      return resp.data.token;
+    });
+  }
 });
