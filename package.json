@@ -1,0 +1,23 @@
+{
+  "name": "choreographing-quokka",
+  "version": "1.0.0",
+  "description": "How are you spending?",
+  "main": "/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choreographing-quokka/choreographing-quokka.git"
+  },
+  "author": "Alex Bailey, Youngjun Kwak, Henry Lyford, Benny Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/choreographing-quokka/choreographing-quokka/issues"
+  },
+  "homepage": "https://github.com/choreographing-quokka/choreographing-quokka#readme",
+  "dependencies": {
+    "bower": "^1.7.2",
+    "express": "^4.13.3"
+  }
+}
