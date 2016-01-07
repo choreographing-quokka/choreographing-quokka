@@ -1,0 +1,28 @@
+{
+  "name": "choreographing-quokka",
+  "description": "How are you spending?",
+  "main": "client/index.html",
+  "authors": [
+    "Alex Bailey",
+    "Youngjun Kwak",
+    "Henry Lyford",
+    "Benny Zhang"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/choreographing-quokka/choreographing-quokka",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}
