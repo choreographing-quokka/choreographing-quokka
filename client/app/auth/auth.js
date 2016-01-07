@@ -1,10 +1,15 @@
-angular.module('rollercost.auth', [])
+angular.module('app.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.user.username = '';
+  $scope.user.password = '';
+
 
   $scope.signin = function () {
     // use sendOff function to send to backend
+    console.log($scope.user);
+    return;
     $scope.sendOff($scope.user, 'signin')
       .then(function (token) {
         $window.localStorage.setItem('com.rollercost', token);

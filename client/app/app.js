@@ -1,16 +1,17 @@
 var app = angular.module('app', [
+  'app.auth',
   'ngRoute'
 ]);
 
 app.config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
-      templateUrl: 'app/auth/signin.html',
+      templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
       authenticate: false
     })
     .when('/signup', {
-      templateUrl: 'app/auth/signup.html',
+      templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
       authenticate: false
     })

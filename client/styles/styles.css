@@ -36,7 +36,7 @@ a:visited {
   padding-left: 50px;
 }
 #navbar-list{
-  margin-top: 35px;
+  margin-top: 22px;
 }
 #navbar h1 {
   font-size: 35px;
@@ -45,7 +45,7 @@ a:visited {
 #navbar h2 {
   font-size: 25px;
   font-style: italic;
-  margin-top: -25px;
+  margin-top: -15px;
 }
 
 #navbar ul {
@@ -72,10 +72,12 @@ a:visited {
 #navbar li a:hover {
     background-color: #111;
 }
-
 #logout-button {
   margin-right: 100px;
 }
 #signin-button {
   margin-right: 20px;
+}
+.signup-form {  
+  margin: 5% 0 0 20%;
 }
