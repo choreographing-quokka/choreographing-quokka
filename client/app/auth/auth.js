@@ -6,8 +6,8 @@ angular.module('rollercost.auth', [])
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/links');
+        $window.localStorage.setItem('com.rollercost', token);
+        $location.path('/home');
       })
       .catch(function (error) {
         console.error(error);
@@ -17,8 +17,8 @@ angular.module('rollercost.auth', [])
   $scope.signup = function () {
     Auth.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/links');
+        $window.localStorage.setItem('com.rollercost', token);
+        $location.path('/home');
       })
       .catch(function (error) {
         console.error(error);
