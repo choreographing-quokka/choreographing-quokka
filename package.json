@@ -27,5 +27,15 @@
     "morgan": "^1.6.1",
     "q": "^1.4.1",
     "request": "^2.67.0"
+
+  },
+  "devdependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "gulp": "^3.8.5",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-shell": "^0.2.7",
+
   }
 }
