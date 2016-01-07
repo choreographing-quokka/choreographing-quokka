@@ -50,7 +50,6 @@ a:visited {
 
 #navbar ul {
   list-style-type: none;
-  margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
@@ -76,4 +75,7 @@ a:visited {
 
 #logout-button {
   margin-right: 100px;
+}
+#signin-button {
+  margin-right: 20px;
 }

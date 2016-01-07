@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html ng-app='app'>
+<html ng-app="app">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
-    <script src="./app/app.js"></script>
-    <!-- <link rel="stylesheet" href="./styles/bootstrap.css"> -->
+    <script src="app/app.js"></script>
+    <script src="app/auth/auth.js"></script>
+    <script src="app/home/home.js"></script>
+    <script src="app/userSubmission/userSubmission.js"></script>
     <link rel="stylesheet" href="./styles/styles.css">
+    <!-- <link rel="stylesheet" href="./styles/bootstrap.css"> -->
   </head>
   <body>
-
     <div id="navbar">
       <a href="/">
       <div id="logo">
@@ -31,6 +33,5 @@
     <div>
       <div class="ng-view" id="main-window"></div>
     </div>
-
   </body>
 </html>
