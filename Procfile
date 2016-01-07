@@ -1,1 +1,1 @@
-web: gulp --production
+web: node node_modules/gulp/bin/gulp build
