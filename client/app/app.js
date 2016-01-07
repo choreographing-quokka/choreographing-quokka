@@ -1,8 +1,4 @@
 var app = angular.module('app', [
-  'rollercost.auth',
-  'rollercost.home',
-  'rollercost.userSubmissions',
-  'rollercost.analyze',
   'ngRoute'
 ]);
 
@@ -24,8 +20,8 @@ app.config(function ($routeProvider, $httpProvider) {
       authenticate: true
     })
     .when('/start', {
-      templateUrl: 'app/userSubmissions/userSubmissions.html',
-      controller: 'UserSubmissionsController',
+      templateUrl: 'app/userSubmission/userSubmission.html',
+      controller: 'UserSubmissionController',
       authenticate: true
     })
     .when('/analyze', {
