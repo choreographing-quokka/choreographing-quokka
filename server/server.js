@@ -7,7 +7,7 @@ var app = express();
 var dbURI = process.env.MONGO_URI || 'mongodb://localhost/rollercost';
 // connect to mongo db
 
-mongoose.connect(dbURI);
+// mongoose.connect(dbURI);
 
 console.log('MongoDB listening at...' + dbURI);
 
