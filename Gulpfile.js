@@ -33,7 +33,6 @@ gulp.task('karma', function (done) {
   }, done).start();
 });
 
-
 // gulp.task('build', ['start'], function() {
 //   return gulp.src('source/javascript/**/*.js')
 //     // only uglify if gulp is ran with '--type production'
@@ -50,6 +49,19 @@ gulp.task('serveprod', function() {
   });
 });
 
+/*
+what is sourcemaps.init
+
+*/
+gulp.task('build', ['start'], function() {
+  return gulp.src('source/javascript/**/*.js')
+    // only uglify if gulp is ran with '--type production'
+    .pipe(concat('all.js'))
+    .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
+    .pipe(gulp.dest('/client/production/'))
+});
+
+
 gulp.task('serve', function () {
   nodemon({
     script: './server/server.js',
@@ -57,4 +69,6 @@ gulp.task('serve', function () {
   });
 });
 
-gulp.task('default', ['serverprod']);
+
+gulp.task('default', ['build']);
+
