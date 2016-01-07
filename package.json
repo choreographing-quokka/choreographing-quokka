@@ -18,10 +18,13 @@
   "homepage": "https://github.com/choreographing-quokka/choreographing-quokka#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.2",
     "bower": "^1.7.2",
     "express": "^4.13.3",
     "jwt-simple": "^0.4.0",
     "mongoose": "^4.3.4",
-    "q": "^1.4.1"
+    "morgan": "^1.6.1",
+    "q": "^1.4.1",
+    "request": "^2.67.0"
   }
 }

@@ -10,7 +10,7 @@ mongoose.connect(dbURI);
 console.log('MongoDB listening at...' + dbURI);
 
 // configure our server with all the middleware and routing
-//require('./config/middleware.js')(app, express);
+require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
 // start listening to requests on prod vs port 8000

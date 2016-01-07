@@ -2,7 +2,10 @@
 <html ng-app="app">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
-<script src="auth/auth.js"></script>
+<script src="app/app.js"></script>
+<script src="app/auth/auth.js"></script>
+<script src="app/home/home.js"></script>
+<script src="app/userSubmission/userSubmission.js"></script>
 <link rel="stylesheet" href="./styles/styles.css">
 <link rel="stylesheet" href="./styles/bootstrap.css">
 <body ng-controller="main">
@@ -22,6 +25,7 @@
     <li> <a href="" id="start-button"> Start </a> </li>
     <li> <a href=""> Analyze </a> </li>
     <ul style="float:right;list-style-type:none;">
+    <li> <a href="#auth" id="signin-button"> Signin/Signup </a> </li>
     <li> <a href="" id="logout-button"> Logout </a> </li>
     <ul>
   </ul>
