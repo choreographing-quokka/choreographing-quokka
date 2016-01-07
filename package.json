@@ -18,9 +18,11 @@
   "homepage": "https://github.com/choreographing-quokka/choreographing-quokka#readme",
   "dependencies": {
     "bower": "^1.7.2",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongoose": "^4.1.0"
   },
   "devdependencies": {
+    "browser-sync": "^1.5.7",
     "chai": "^3.4.1",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2",
