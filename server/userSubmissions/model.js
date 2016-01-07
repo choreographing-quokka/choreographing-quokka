@@ -2,6 +2,12 @@ var mongoose = require('mongoose');
 
 var dataSchema = new mongoose.Schema({
   income: Number,
+  // Demographics
+  zipcode: Number,
+  gender: Number,
+  age: Number, 
+
+  // Data
   rent: Number,
   transportation: Number,
   restaurants: Number,
