@@ -46,5 +46,9 @@
     "gulp-uglify": "^1.5.1",
     "gulp-shell": "^0.2.7"
 
+  },
+  "engines": {
+    "node": "0.12.0"
+
   }
 }
