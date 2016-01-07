@@ -9,7 +9,7 @@ module.exports = {
 
 	// signin 
   signin: function (req, res, next) {
-    console.log(req.body);
+    console.log('user sign in', req.body);
     var username = req.body.username;
     var password = req.body.password;
 

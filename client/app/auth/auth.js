@@ -1,6 +1,7 @@
 angular.module('app.auth', [])
-
-.controller('AuthController', function ($scope, $window, $location, Auth) {
+// ADD BACK 'Auth' AS ARG ON LINE3
+.controller('AuthController', function ($scope, $window, $location, $http) {
+  
   $scope.user = {};
   $scope.user.username = '';
   $scope.user.password = '';
@@ -9,7 +10,7 @@ angular.module('app.auth', [])
   $scope.signin = function () {
     // use sendOff function to send to backend
     console.log($scope.user);
-    return;
+
     $scope.sendOff($scope.user, 'signin')
       .then(function (token) {
         $window.localStorage.setItem('com.rollercost', token);
@@ -21,6 +22,8 @@ angular.module('app.auth', [])
   };
 
   $scope.signup = function () {
+    console.log($scope.user);
+
     $scope.sendOff($scope.user, 'signup')
       .then(function (token) {
         $window.localStorage.setItem('com.rollercost', token);
@@ -33,7 +36,7 @@ angular.module('app.auth', [])
 
   // function used by both above methods to send http request off to server
   $scope.sendOff = function(user, reqType) {
-    var endPoint = reqType === 'signin' ? '/signin' : 'signup';
+    var endPoint = reqType === 'signin' ? '/signin' : '/signup';
     return $http({
       method: 'POST',
       url: endPoint,
