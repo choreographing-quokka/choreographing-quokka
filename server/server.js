@@ -5,6 +5,8 @@ var app = express();
 
 // db for prod vs local
 var dbURI = process.env.MONGO_URI || 'mongodb://localhost/rollercost';
+
+console.log(dbURI);
 // connect to mongo db
 mongoose.connect(dbURI);
 console.log('MongoDB listening at...' + dbURI);
