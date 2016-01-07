@@ -10,7 +10,7 @@ app.config(function ($routeProvider, $httpProvider) {
       authenticate: false
     })
     .when('/signup', {
-      templateUrl: 'app/auth/signup.html',
+      templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
       authenticate: false
     })
