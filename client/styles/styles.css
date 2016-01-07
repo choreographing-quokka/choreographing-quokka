@@ -1,0 +1,79 @@
+body {
+  font-family: arial;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+/*navbar styling*/
+
+
+#navbar-list a{
+  color: white;
+}
+
+#navbar img {
+  position: absolute;
+  height: 140px;
+  margin-right: 20px;
+  width: auto;
+  float: left;
+  z-index: -1;
+}
+
+#title{
+  margin-left: 140px;
+  padding-top: 10px;
+  padding-left: 50px;
+}
+#navbar-list{
+  margin-top: 35px;
+}
+#navbar h1 {
+  font-size: 35px;
+}
+
+#navbar h2 {
+  font-size: 25px;
+  font-style: italic;
+  margin-top: -25px;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  z-index: 10;
+}
+
+#navbar li {
+    float: left;
+}
+
+#navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#navbar li a:hover {
+    background-color: #111;
+}
+
+#logout-button {
+  margin-right: 100px;
+}
