@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var app = express();
 
 // db for prod vs local
-var dbURI = process.env.MONGO_URI || 'mongodb://localhost/rollercost';
+var dbURI = process.env.MONGOLAB_URI || 'mongodb://localhost/rollercost';
 
 console.log(dbURI);
 // connect to mongo db
