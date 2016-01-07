@@ -5,7 +5,7 @@ var app = angular.module('app', [
 app.config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
-      templateUrl: 'app/auth/signin.html',
+      templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
       authenticate: false
     })
