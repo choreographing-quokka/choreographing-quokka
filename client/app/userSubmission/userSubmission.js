@@ -20,6 +20,4 @@ userSubmission.controller('UserSubmissionController', function($scope, $http){
         $scope.showCount = 0;
       });
   };
-
-
 });
