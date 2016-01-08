@@ -1,0 +1,8 @@
+<div ng-controller="AnalyzeController" class="analyze-page">
+  <div class="resultsTitle">
+    <h1>Your results are in!</h1>
+  </div>
+  <div ng-repeat="result in results">
+    <span class="result">You spend {{result.percent}} {{result.more}} than the average person on {{result.item}}</span>
+  </div>
+</div>

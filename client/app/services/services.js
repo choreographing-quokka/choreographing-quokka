@@ -15,4 +15,21 @@ angular.module('app.services', [])
     isAuth: isAuth,
     signout: signout
   };
+})
+
+.factory('Results', function ($http) {
+  
+  var getResults = function () {
+    return $http({
+      url: 'results', // URL for now
+      method: 'GET'
+    }).then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  return {
+    getResults: getResults
+  };
 });
+
