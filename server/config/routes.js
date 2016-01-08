@@ -17,6 +17,10 @@ module.exports = function (app, express) {
   app.post('/signup', authController.signup);
 
   app.post('/signin', authController.signin);
+  // check if logged in
+  app.get('/signin', authController.checkAuth);
+
+  app.get('/logout', authController.signin);
 
   // user form submission routes
 

@@ -6,7 +6,7 @@ angular.module('app.services', [])
     return !!$window.localStorage.getItem('com.rollercost');
   };
 
-  var signout = function () {
+  var signout = function () {    
     $window.localStorage.removeItem('com.rollercost');
     $location.path('/signin');
   };
