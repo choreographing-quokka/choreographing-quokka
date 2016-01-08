@@ -38,11 +38,11 @@ module.exports = {
   signup: function (req, res, next) {
     
     var username = req.body.username;
-    var password = req.body.password;
-
+    var password = req.body.password;    
     // check to see if user already exists
     findUser({username: username})
-      .then(function (user) {
+      .then(function (user) {    
+      console.log('here');    
         if (user) {
           next(new Error('User already exist!'));
         } else {          
@@ -55,8 +55,7 @@ module.exports = {
       })
       .then(function (user) {        
         // create token to send back for auth
-        var token = jwt.encode(user, 'secret');
-        // hehehehehehh
+        var token = jwt.encode(user, 'secret');        
         console.log(res);
         res.json({token: token});
       })

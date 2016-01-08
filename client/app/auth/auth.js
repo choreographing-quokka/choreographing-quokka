@@ -12,6 +12,7 @@ angular.module('app.auth', [])
 
     $scope.sendOff($scope.user, 'signin')
       .then(function (token) {
+        console.log(token);
         $window.localStorage.setItem('com.rollercost', token);
         $location.path('/start');
       })
@@ -24,6 +25,7 @@ angular.module('app.auth', [])
     
     $scope.sendOff($scope.user, 'signup')
       .then(function (token) {
+        console.log(token);
         $window.localStorage.setItem('com.rollercost', token);
         $location.path('/start');
       })
