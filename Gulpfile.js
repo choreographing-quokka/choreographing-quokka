@@ -7,7 +7,6 @@ var sync = require('browser-sync');
 var nodemon = require('gulp-nodemon');
 var KarmaServer = require('karma').Server;
 
-
 // start server in develpoment with default
 // serve serve for deployment with gulp serve
 var paths = {
