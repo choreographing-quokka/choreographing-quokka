@@ -30,7 +30,7 @@ UserSchema.methods.comparePasswords = function (candidatePassword) {
   });
 };
 
-UserSchema.pre('save', function (next) {
+UserSchema.pre('save', function (next) {  
   var user = this;
   // only hash the password if it has been modified (or is new)
   if (!user.isModified('password')) {

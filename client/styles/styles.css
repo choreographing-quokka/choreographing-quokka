@@ -78,6 +78,9 @@ a:visited {
 #signin-button {
   margin-right: 20px;
 }
-.signup-form {  
+.signup-form, .signup {  
   margin: 5% 0 0 20%;
+}
+.modal-dialog {
+  margin-top: 10%;
 }

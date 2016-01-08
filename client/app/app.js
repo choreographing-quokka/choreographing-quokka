@@ -1,4 +1,5 @@
 var app = angular.module('app', [
+  'app.services',
   'app.auth',
   'ngRoute'
 ]);
@@ -49,10 +50,11 @@ app.config(function ($routeProvider, $httpProvider) {
   };
   return attach;
 })
-// .run(function ($rootScope, $location, Auth) {
-//   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-//     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
-//       $location.path('/signin');
-//     }
-//   });
-// });
+// redirect to the signin page if user tries to go to a protected page and not logged in
+.run(function ($rootScope, $location, Auth) {
+  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+    if (/*next.$$route && next.$$route.authenticate &&*/ !Auth.isAuth() ) {
+      $location.path('/signin');
+    }
+  });
+});
