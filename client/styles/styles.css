@@ -78,6 +78,71 @@ a:visited {
 #signin-button {
   margin-right: 20px;
 }
+
 .signup-form {  
   margin: 5% 0 0 20%;
+
+/*userSubmission View Styling*/
+
+.userSubmissionView {
+  color: white;
+  font-size: 25px;
+  width: 400px;
+  background-color: skyblue;
+  margin-left: 25%;
+  margin-top: 50px;
+  padding: 40px 40px 40px 40px;
+  border-radius: 10px;
+}
+
+.userSubmissionConfirmationView {
+  color: black;
+  font-size: 15px;
+  width: 400px;
+  background-color: ivory;
+  margin-left: 25%;
+  margin-top: 50px;
+  padding: 40px 40px 40px 40px;
+  border-radius: 10px;
+  border-color: black;
+  border-width: 5px;
+}
+
+.userSubmissionConfirmationView li {
+  margin-bottom: 5px;
+}
+
+.prompt{
+  width: 400px;
+  margin-left: 0px;
+}
+.userSubmission-prompt {
+  margin: 20px
+}
+
+.user-input{
+  margin: 20px;
+}
+
+.next-button {
+  color: white;
+  float: right;
+  margin-right: 20px;
+}
+
+.input-error-msg{
+  font-size: 20px;
+  font-style: italic;
+}
+
+.next-button {
+  float: right;
+  margin-right: 20px;
+  margin-top: 35px;
+}
+
+.back-button {
+  float: left;
+  margin-left: 20px;
+  margin-top: 35px;
 }
