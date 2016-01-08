@@ -1,4 +1,4 @@
-anuglar.module('app.analyze', []) 
+angular.module('app.analyze', []) 
 
 .controller('AnalyzeController', function ($scope, Results) {
   $scope.results = [];

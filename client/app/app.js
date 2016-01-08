@@ -30,7 +30,7 @@ app.config(function ($routeProvider, $httpProvider) {
     .when('/analyze', {
       templateUrl: 'app/analyze/analyze.html',
       controller: 'AnalyzeController',
-      authenticate: true
+      // authenticate: true
     })
     .otherwise({
       redirectTo: '/'
@@ -51,7 +51,6 @@ app.config(function ($routeProvider, $httpProvider) {
   };
   return attach;
 })
-
 // redirect to the signin page if user tries to go to a protected page and not logged in
 .run(function ($rootScope, $location, Auth) {
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
@@ -59,5 +58,4 @@ app.config(function ($routeProvider, $httpProvider) {
       $location.path('/signin');
     }
   });
-
 });
