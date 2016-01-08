@@ -4,7 +4,8 @@
   "description": "How are you spending?",
   "main": "/server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,24 @@
     "url": "https://github.com/choreographing-quokka/choreographing-quokka/issues"
   },
   "homepage": "https://github.com/choreographing-quokka/choreographing-quokka#readme",
+  "devDependencies": {
+    "browser-sync": "^1.5.7",
+    "chai": "^3.4.1",
+    "clone-stats": "0.0.1",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-shell": "^0.2.7",
+    "karma": "^0.13.15",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.1",
+    "karma-nyan-reporter": "0.0.43",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon": "^1.0.4",
+    "karma-unicorn-reporter": "^0.1.4",
+    "mocha": "^2.3.4",
+    "pre-commit": "^1.1.1",
+    "sinon": "^1.17.2"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
