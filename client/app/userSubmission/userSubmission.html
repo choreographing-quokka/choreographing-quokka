@@ -1,77 +1,251 @@
 <div class="loader" ng-show="showCount === -1">
 <img src="../assets/loading.gif"></img>
-</div>
-<div class="userSubmissionsView" ng-show="showCount === 0">
-  "What is your annual income?"
-  <form class="incomeInput">
-  </form>
+Processing your request...!
 </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 1">
-  <form class="zipcodeInput">
-  </form>
-</div>
+<form name="userInput" class="user-input" ng-submit="submitData()" novalidate>
+  <div class="userSubmissionView" ng-show="showCount === 0">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"What is your annual income?"</div>
+      $<input class="user-input-field"
+              type="number"
+              name="income"
+              ng-model="data.income" 
+              required>
+      <a href=""><div ng-show="userInput.income.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 2">
-  <form class="genderInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 1">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"What is your zipcode?"</div>
+      <input class="user-input-field"
+              type="string" 
+              name="zipcode"
+              ng-model="data.zipcode" 
+              required>
+      <a href=""><div ng-show="userInput.zipcode.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 3">
-  <form class="ageInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 2">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"What is your gender?"</div>
+      <input class="user-input-field"
+              type="radio"
+              name="gender"
+              ng-model="data.gender"
+              value = "male"
+              required> Male
+      <input class="user-input-field"
+              type="radio"
+              name="gender"
+              ng-model="data.gender"
+              value = "female"
+              required> Female
+      <a href=""><div ng-show="userInput.gender.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 4">
-  <form class="rentInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 3">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"How old are you?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="age"
+              ng-model="data.age" 
+              required>
+      <a href=""><div ng-show="userInput.age.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 5">
-  <form class="transportationInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 4">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"How much do you pay for rent per month?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="rent"
+              ng-model="data.rent" 
+              required>
+      <a href=""><div ng-show="userInput.age.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 6">
-  <form class="restaurantsInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 5">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"On average, how much do you pay for transportation per week?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="transportation"
+              ng-model="data.transportation" 
+              required>
+      <a href=""><div ng-show="userInput.transportation.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 7">
-  <form class="groceriesInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 6">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"On average, how much do you spend for eating out per week?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="eatingout"
+              ng-model="data.eatingout" 
+              required>
+      <a href=""><div ng-show="userInput.eatingout.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 8">
-  <form class="clothesInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 7">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"On average, how much do you spend for groceries per week?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="groceries"
+              ng-model="data.groceries" 
+              required>
+      <a href=""><div ng-show="userInput.groceries.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 9">
-  <form class="hygieneInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 8">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"On average, how much do you spend for clothes per month?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="clothes"
+              ng-model="data.clothes" 
+              required>
+      <a href=""><div ng-show="userInput.clothes.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 10">
-  <form class="travelInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 9">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"On average, how much do you spend for personal hygiene (e.g. haircut, hygiene product, etc) per month?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="hygiene"
+              ng-model="data.hygiene" 
+              required>
+      <a href=""><div ng-show="userInput.hygiene.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 11">
-  <form class="alcoholInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 10">
+    <div class="prompt">
+    <div class="userSubmission-prompt">"On average, how much do you spend for travelling per year?"</div>
+      <input class="user-input-field"
+              type="number"
+              name="travel"
+              ng-model="data.travel" 
+              required>
+      <a href=""><div ng-show="userInput.travel.$error.required === false" class="next-button" ng-click="nextPrompt()">
+        Next
+      </div></a>
+      <a href=""><div class="next-button" ng-click="previousPrompt()">
+        Back
+      </div></a>
+      </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 12">
-  <form class="gymInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 11">
+  <div class="prompt">
+  <div class="userSubmission-prompt">"On average, how much do you spend for entertainment (e.g. alcohol, going out, concerts, etc) per month?"</div>
+    <input class="user-input-field"
+            type="number"
+            name="entertainment"
+            ng-model="data.entertainment" 
+            required>
+    <a href=""><div ng-show="userInput.entertainment.$error.required === false" class="next-button" ng-click="nextPrompt()">
+      Next
+    </div></a>
+    <a href=""><div class="next-button" ng-click="previousPrompt()">
+      Back
+    </div></a>
+    </div>
+  </div>
 
-<div class="userSubmissionsView" ng-show="showCount === 13">
-  <form class="entertainmentInput">
-  </form>
-</div>
+  <div class="userSubmissionView" ng-show="showCount === 12">
+  <div class="prompt">
+  <div class="userSubmission-prompt">"How much do you pay for gym membership per month?"</div>
+    <input class="user-input-field"
+            type="number"
+            name="gym"
+            ng-model="data.gym" 
+            required>
+    <a href=""><div ng-show="userInput.gym.$error.required === false" class="next-button" ng-click="nextPrompt()">
+      Next
+    </div></a>
+    <a href=""><div class="next-button" ng-click="previousPrompt()">
+      Back
+    </div></a>
+    </div>
+  </div>
+  
+  <div class="userSubmissionConfirmationView" ng-show="showCount === 13">
+  <ol>
+    <li ng-click="showCount=1">Income: {{data.income}}</li>
+    <li ng-click="showCount=2">Zipcode: {{data.zipcode}}</li>
+    <li ng-click="showCount=3">Gender: {{data.gender}}</li>
+    <li ng-click="showCount=4">Age: {{data.age}}</li>
+    <li ng-click="showCount=5">Rent: {{data.rent}} per month</li>
+    <li ng-click="showCount=6">Transportation: {{data.transportation}} per week</li>
+    <li ng-click="showCount=7">Eating Out: {{data.eatingout}} per week</li>
+    <li ng-click="showCount=8">Groceries: {{data.groceries}} per week</li>
+    <li ng-click="showCount=9">Clothes: {{data.clothes}} per month</li>
+    <li ng-click="showCount=10">Hygiene: {{data.hygiene}} per month</li>
+    <li ng-click="showCount=12">Travelling: {{data.travel}} per year</li>
+    <li ng-click="showCount=13">Entertainment: {{data.entertainment}} per month</li>
+    <li ng-click="showCount=14">Gym: {{data.gym}} per month</li>
+  </ol>
+  <button class="submit-button" type="submit">Confirm</button>
+  </div>
 
-<div class="userSubmissionsConfirmView" ng-show="showCount === 14">
-
-</div>
+</form>

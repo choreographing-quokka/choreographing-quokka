@@ -4,13 +4,14 @@ userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.showCount = 0;
   $scope.loading = false;
   $scope.data = {};
-  $scope.addData = function(input, category){
-    //add user input to the data
-    $scope.data[category] = input;
-    //increment the showCount to show the next prompt
+  $scope.nextPrompt = function(){
     $scope.showCount++;
   };
+  $scope.previousPrompt = function(){
+    $scope.showCount--;
+  }
   $scope.submitData = function(data){
+    $scope.showCount = -1;
     $scope.loading = true;
     $http.post('/api/userSubmission', data).
       success(function(){
