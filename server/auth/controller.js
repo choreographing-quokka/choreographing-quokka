@@ -36,7 +36,7 @@ module.exports = {
 
   // sign up
   signup: function (req, res, next) {
-    console.log(req.body);
+    
     var username = req.body.username;
     var password = req.body.password;
 
@@ -45,17 +45,19 @@ module.exports = {
       .then(function (user) {
         if (user) {
           next(new Error('User already exist!'));
-        } else {
+        } else {          
           // make a new user if not one
-          return createUser({
+          createUser({
             username: username,
             password: password
           });
         }
       })
-      .then(function (user) {
+      .then(function (user) {        
         // create token to send back for auth
         var token = jwt.encode(user, 'secret');
+        // hehehehehehh
+        console.log(res);
         res.json({token: token});
       })
       .fail(function (error) {

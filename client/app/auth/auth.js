@@ -23,7 +23,6 @@ angular.module('app.auth', [])
 
   $scope.signup = function () {
     console.log($scope.user);
-
     $scope.sendOff($scope.user, 'signup')
       .then(function (token) {
         $window.localStorage.setItem('com.rollercost', token);
