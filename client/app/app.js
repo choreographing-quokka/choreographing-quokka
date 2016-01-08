@@ -1,6 +1,7 @@
 var app = angular.module('app', [
   'app.services',
   'app.auth',
+  'app.analyze',
   'ngRoute'
 ]);
 
@@ -29,7 +30,7 @@ app.config(function ($routeProvider, $httpProvider) {
     .when('/analyze', {
       templateUrl: 'app/analyze/analyze.html',
       controller: 'AnalyzeController',
-      authenticate: true
+      // authenticate: true
     })
     .otherwise({
       redirectTo: '/'
