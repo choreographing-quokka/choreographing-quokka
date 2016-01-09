@@ -21,14 +21,15 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
     "bower": "^1.7.2",
+    "browser-sync": "^1.5.7",
     "express": "^4.13.3",
     "http": "0.0.0",
     "jwt-simple": "^0.4.0",
     "mongoose": "^4.3.4",
     "morgan": "^1.6.1",
+    "nbind": "^0.1.1",
     "q": "^1.4.1",
-    "request": "^2.67.0",
-    "browser-sync": "^1.5.7"
+    "request": "^2.67.0"
   },
   "devdependencies": {
     "browser-sync": "^1.5.7",
@@ -44,9 +45,7 @@
     "gulp-connect": "^2.3.1",
     "gulp-nodemon": "^1.0.4",
     "gulp-shell": "^0.2.7",
-    "browser-sync": "^1.5.7",
-    "gulp-uglify": "^1.5.1",
-    "gulp-shell": "^0.2.7"
+    "gulp-uglify": "^1.5.1"
   },
   "engines": {
     "node": "0.12.0",

@@ -9,7 +9,7 @@ var dbURI = process.env.MONGOLAB_URI || 'mongodb://localhost/rollercost';
 console.log(dbURI);
 // connect to mongo db
 
-// mongoose.connect(dbURI);
+mongoose.connect(dbURI);
 
 console.log('MongoDB listening at...' + dbURI);
 
