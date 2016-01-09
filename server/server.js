@@ -6,9 +6,7 @@ var app = express();
 // db for prod vs local
 var dbURI = process.env.MONGOLAB_URI || 'mongodb://localhost/rollercost';
 
-console.log(dbURI);
 // connect to mongo db
-
 mongoose.connect(dbURI);
 
 console.log('MongoDB listening at...' + dbURI);
@@ -20,6 +18,6 @@ require('./config/routes.js')(app, express);
 // start listening to requests on prod vs port 8000
 var port = process.env.PORT || 8000;
 app.listen(port);
-console.log('Rent app listening on ' + port);
+console.log('Rollercost app listening on ' + port);
 
 module.exports = app;
