@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var dataSchema = new mongoose.Schema({
+  // CHECK WITH JOTA IF THESE CORRESPOND
+  username: String,
+  date: Date,
+
   income: Number,
   // Demographics
   zipcode: Number,
