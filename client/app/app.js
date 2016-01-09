@@ -2,6 +2,7 @@ var app = angular.module('app', [
   'app.services',
   'app.auth',
   'app.analyze',
+  'rollercost.userSubmission',
   'ngRoute'
 ]);
 
