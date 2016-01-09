@@ -41,6 +41,7 @@ module.exports = {
     var password = req.body.password;    
     // check to see if user already exists
     findUser({username: username})
+    // THIS THEN IS NOT BEING RUN
       .then(function (user) {    
       console.log('here');    
         if (user) {
