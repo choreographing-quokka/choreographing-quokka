@@ -23,6 +23,7 @@ module.exports = function (app, express) {
   app.get('/logout', authController.signin);
 
   // user form submission routes
+  app.post('/submit', userSubmissionsController.addData);
 
   // app.use(helpers.errorLogger);
   // app.use(helpers.errorHandler);

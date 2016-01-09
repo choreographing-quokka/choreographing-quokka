@@ -24,6 +24,8 @@ module.exports = {
       })
   },
 
-
+  fetchData: function (req, res, next) {
+                                                                                               
+  }
 
 }
