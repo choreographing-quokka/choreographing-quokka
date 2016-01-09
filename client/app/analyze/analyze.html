@@ -1,8 +1,12 @@
 <div ng-controller="AnalyzeController" class="analyze-page">
   <div class="resultsTitle">
-    <h1>Your results are in!</h1>
+    <h1>Hey {{user}}, your results are in!</h1>
   </div>
-  <div ng-repeat="result in results">
-    <span class="result">You spend {{result.percent}} {{result.more}} than the average person on {{result.item}}</span>
+  <div class="resultsIncome" ng-show="income">
+  	<h2>Your {{income.item}} income is {{incomeResult.more}} than average</h2>
+  </div>
+  <div class="results" ng-repeat="result in results">
+    <span class="overspend" ng-show="result.more">You spend {{result.percent}} {{result.more}} than the average person on {{result.item}}</span>
+    <span class="underspend" ng-show="!result.more">You spend {{result.percent}} {{result.more}} than the average person on {{result.item}}</span>
   </div>
 </div>

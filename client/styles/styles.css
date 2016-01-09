@@ -86,6 +86,7 @@ a:visited {
   margin-top: 10%;
 }
 
+
 /*userSubmission View Styling*/
 
 .userSubmissionView {
@@ -150,3 +151,12 @@ a:visited {
   margin-left: 20px;
   margin-top: 35px;
 }
+
+.results .underspend {
+  color: green;
+}
+.results .overspend {
+  color: red;
+}
+
+

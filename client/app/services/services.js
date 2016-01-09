@@ -23,8 +23,6 @@ angular.module('app.services', [])
     return $http({
       url: 'results', // URL for now
       method: 'GET'
-    }).then(function (resp) {
-      return resp.data;
     });
   };
 
