@@ -11,13 +11,14 @@ module.exports = {
   signin: function (req, res, next) {
     console.log('user sign in', req.body);
     var username = req.body.username;
-    var password = req.body.password;
+    var password = req.body.password;    
 
     findUser({username: username})
       .then(function (user) {
         if (!user) {
           next(new Error('User does not exist'));
         } else {
+          console.log(user);
           return user.comparePasswords(password)
             .then(function (foundUser) {
               if (foundUser) {
@@ -39,24 +40,28 @@ module.exports = {
     
     var username = req.body.username;
     var password = req.body.password;    
-    // check to see if user already exists
-    findUser({username: username})
-      .then(function (user) {    
-      console.log('here');    
+    // check to see if user already exists 
+
+    var query = User.findOne({username : username});
+    console.log('pre', username);        
+ 
+    
+    findUser({username: username})    
+      .then(function (user) {          
         if (user) {
           next(new Error('User already exist!'));
         } else {          
           // make a new user if not one
-          createUser({
+          return createUser({
             username: username,
             password: password
           });
         }
       })
       .then(function (user) {        
+        console.log('here', user);
         // create token to send back for auth
-        var token = jwt.encode(user, 'secret');        
-        console.log(res);
+        var token = jwt.encode(user, 'secret');                
         res.json({token: token});
       })
       .fail(function (error) {
