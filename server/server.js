@@ -6,8 +6,8 @@ var app = express();
 // db for prod vs local
 var dbURI = process.env.MONGOLAB_URI || 'mongodb://localhost/rollercost';
 
-console.log(dbURI);
 // connect to mongo db
+// to view prod mongo db: mongodb://dbuser:dbpass@host:port/dbname
 
 mongoose.connect(dbURI);
 
