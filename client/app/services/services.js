@@ -21,7 +21,7 @@ angular.module('app.services', [])
   
   var getResults = function () {
     return $http({
-      url: 'results', // URL for now
+      url: 'api/analyze', // URL for now
       method: 'GET'
     });
   };

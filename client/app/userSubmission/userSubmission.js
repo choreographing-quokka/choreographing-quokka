@@ -1,4 +1,4 @@
-var userSubmission = angular.module('rollercost.userSubmission', []);
+bvar userSubmission = angular.module('rollercost.userSubmission', []);
 
 userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.showCount = 0;
@@ -10,14 +10,15 @@ userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.previousPrompt = function(){
     $scope.showCount--;
   }
-  $scope.submitData = function(data){
+  $scope.submitData = function(){
     $scope.showCount = -1;
     $scope.loading = true;
-    $http.post('/api/userSubmission', data).
+    $http.post('/api/userSubmission', $scope.data).
       success(function(){
         //if post request successful, reset the view to the initial one
         $scope.loading = false;
         $scope.showCount = 0;
+        console.log($scope.data);
       });
   };
 });
