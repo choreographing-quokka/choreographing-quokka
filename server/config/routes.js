@@ -1,4 +1,4 @@
-var userSubmissionController = require('../userSubmissions/controller2.js');
+var userSubmissionController = require('../userSubmissions/controller.js');
 var authController = require('../auth/controller.js');
 var helpers = require('./helper.js'); 
 var path = require('path');
@@ -23,6 +23,7 @@ module.exports = function (app, express) {
 
   // user form submission routes
   app.post('/api/userSubmission', userSubmissionController.addData);
+  app.get('/api/analyze', userSubmissionController.generateReport);
 
   // app.use(helpers.errorLogger);
   // app.use(helpers.errorHandler);

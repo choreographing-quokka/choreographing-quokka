@@ -5,6 +5,7 @@ angular.module('app.auth', [])
   $scope.user = {};
   $scope.user.username = '';
   $scope.user.password = '';
+  $scope.error = '';
 
 
   $scope.signin = function () {
@@ -12,11 +13,11 @@ angular.module('app.auth', [])
 
     $scope.sendOff($scope.user, 'signin')
       .then(function (token) {
-        console.log(token);
         $window.localStorage.setItem('com.rollercost', token);
         $location.path('/start');
       })
       .catch(function (error) {
+        $scope.error = error.data.slice(0,26);
         console.error(error);
       });
   };
