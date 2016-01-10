@@ -228,22 +228,40 @@ Processing your request...!
     </div></a>
     </div>
   </div>
+
+  <div class="userSubmissionView" ng-show="showCount === 13">
+  <div class="prompt">
+  <div class="userSubmission-prompt">"Finally, what is your username?"</div>
+    <input class="user-input-field"
+            type="string"
+            name="username"
+            ng-model="data.username" 
+            required>
+    <a href=""><div ng-show="userInput.username.$error.required === false" class="next-button" ng-click="nextPrompt()">
+      Next
+    </div></a>
+    <a href=""><div class="next-button" ng-click="previousPrompt()">
+      Back
+    </div></a>
+    </div>
+  </div>
   
-  <div class="userSubmissionConfirmationView" ng-show="showCount === 13">
+  <div class="userSubmissionConfirmationView" ng-show="showCount === 14">
   <ol>
-    <li ng-click="showCount=1">Income: {{data.income}}</li>
-    <li ng-click="showCount=2">Zipcode: {{data.zipcode}}</li>
-    <li ng-click="showCount=3">Gender: {{data.gender}}</li>
-    <li ng-click="showCount=4">Age: {{data.age}}</li>
-    <li ng-click="showCount=5">Rent: {{data.rent}} per month</li>
-    <li ng-click="showCount=6">Transportation: {{data.transportation}} per week</li>
-    <li ng-click="showCount=7">Eating Out: {{data.eatingout}} per week</li>
-    <li ng-click="showCount=8">Groceries: {{data.groceries}} per week</li>
-    <li ng-click="showCount=9">Clothes: {{data.clothes}} per month</li>
-    <li ng-click="showCount=10">Hygiene: {{data.hygiene}} per month</li>
-    <li ng-click="showCount=12">Travelling: {{data.travel}} per year</li>
-    <li ng-click="showCount=13">Entertainment: {{data.entertainment}} per month</li>
-    <li ng-click="showCount=14">Gym: {{data.gym}} per month</li>
+    <li ng-click="showCount=13">Username: {{data.username}}</li>
+    <li ng-click="showCount=0">Income: {{data.income}}</li>
+    <li ng-click="showCount=1">Zipcode: {{data.zipcode}}</li>
+    <li ng-click="showCount=2">Gender: {{data.gender}}</li>
+    <li ng-click="showCount=3">Age: {{data.age}}</li>
+    <li ng-click="showCount=4">Rent: {{data.rent}} per month</li>
+    <li ng-click="showCount=5">Transportation: {{data.transportation}} per week</li>
+    <li ng-click="showCount=6">Eating Out: {{data.eatingout}} per week</li>
+    <li ng-click="showCount=7">Groceries: {{data.groceries}} per week</li>
+    <li ng-click="showCount=8">Clothes: {{data.clothes}} per month</li>
+    <li ng-click="showCount=9">Hygiene: {{data.hygiene}} per month</li>
+    <li ng-click="showCount=10">Travelling: {{data.travel}} per year</li>
+    <li ng-click="showCount=11">Entertainment: {{data.entertainment}} per month</li>
+    <li ng-click="showCount=12">Gym: {{data.gym}} per month</li>
   </ol>
   <button class="submit-button" type="submit">Confirm</button>
   </div>
