@@ -18,6 +18,4 @@ angular.module('app.analyze', [])
   };
 
   loadResults();
-
-
 });
