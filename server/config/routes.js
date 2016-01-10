@@ -1,4 +1,3 @@
-
 var userSubmissionsController = require('../userSubmission/controller.js');
 var authController = require('../auth/controller.js');
 var helpers = require('./helper.js'); 
