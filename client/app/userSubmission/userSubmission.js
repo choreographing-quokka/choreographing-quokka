@@ -1,4 +1,4 @@
-bvar userSubmission = angular.module('rollercost.userSubmission', []);
+var userSubmission = angular.module('rollercost.userSubmission', []);
 
 userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.showCount = 0;

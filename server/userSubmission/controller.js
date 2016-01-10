@@ -23,7 +23,7 @@ module.exports = {
           var averageData = util.getAverages();
           console.log('averageData is...', averageData);
 
-          //report tuple index 0 is the user data and index 1 is the average
+          //NOTE: report tuple index 0 is the user data and index 1 is the average
           var report = {
             income: [userData.income, averageData.income],
             rent: [userData.rent, averageData.rent],
