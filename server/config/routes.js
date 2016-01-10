@@ -1,4 +1,4 @@
-var userSubmissionController = require('../userSubmissions/controller2.js');
+var userSubmissionController = require('../userSubmissions/controller.js');
 var authController = require('../auth/controller.js');
 var helpers = require('./helper.js'); 
 var path = require('path');
