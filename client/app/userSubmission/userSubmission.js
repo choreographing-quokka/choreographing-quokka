@@ -1,4 +1,4 @@
-bvar userSubmission = angular.module('rollercost.userSubmission', []);
+var userSubmission = angular.module('rollercost.userSubmission', []);
 
 userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.showCount = 0;
@@ -13,6 +13,7 @@ userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.submitData = function(){
     $scope.showCount = -1;
     $scope.loading = true;
+    console.log($scope.data);
     $http.post('/api/userSubmission', $scope.data).
       success(function(){
         //if post request successful, reset the view to the initial one
