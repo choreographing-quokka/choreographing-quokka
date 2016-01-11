@@ -1,9 +1,9 @@
 angular.module('app.analyze', []) 
 
 .controller('AnalyzeController', function ($scope, Results) {
-  $scope.results = {};
-  $scope.user = Results.getUser(); // for testing 
-  $scope.income = null;
+  $scope.results = {groceries: [100, 120, 'less'], gym: [150, 90, 'more']};
+  $scope.user = 'Alex' //Results.getUser(); // for testing 
+  $scope.income = [120000, 60000, 'more'];
   var loadResults = function () {
     Results.getResults()
       .then(function(resp) {
@@ -20,9 +20,9 @@ angular.module('app.analyze', [])
       });    
   };
 
-  $socpe.percentDifference = function(tuple) {
-    Math.abs(tuple[0] - tuple[1]) / tuple[1] * 100
+  $scope.percentDifference = function(tuple) {
+    return Math.round(Math.abs(tuple[0] - tuple[1]) / tuple[1] * 100)
   }
 
-  loadResults();
+  //loadResults();
 });
