@@ -24,8 +24,11 @@ angular.module('app.services', [])
   var updateUser = function (user) {
     console.log(user);
     username = user;
-
   };
+
+  var getUser = function () {
+    return username;
+  }
 
   var getResults = function () {
     if (username === null) {
