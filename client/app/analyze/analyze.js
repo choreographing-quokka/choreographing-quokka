@@ -4,6 +4,7 @@ angular.module('app.analyze', [])
   $scope.results = {};
   $scope.user = $window.localStorage.username // for testing 
   $scope.income = null;
+  $scope.grade = null;
   var loadResults = function () {
     Results.getResults()
       .then(function(resp) {
@@ -19,21 +20,55 @@ angular.module('app.analyze', [])
       	$scope.income = results.income;
         delete results.income;
         $scope.results = results;
+        $scope.grade = calculateGrade();
       })
       .catch(function (error) {
       	console.log(error);
       });    
   };
 
+
   $scope.percentDifference = function(tuple) {
     return Math.round((Math.abs(tuple[0] - tuple[1]) / tuple[1]) * 100)
   }
 
-  $scope.consumptionBehaviorScore = function(){
+  $scope.calculateConsumptionBehaviorScore = function() {
+    var prorate = {
+      rent: 12,
+      transportation: 52, //52.1429
+      eatingout: 52,
+      groceries: 52,
+      clothes: 12,
+      hygiene: 12,
+      travel: 1,
+      entertainment: 12,
+      gym: 12
+    }
+    var output = 0
+    for (var item in $scope.results) {
+      output += (typeof $scope.results[item][0] === 'number' ? $scope.results[item][0] * prorate[item] : 0);
+    }
+    var output = ($scope.income - output) / $scope.income * 100;
+    if (output >= 40) {
+      output = 'A+';
+    } else if (output >= 30) {
+      output = 'A';
+    } else if (output >= 20) {
+      output = 'B+';
+    } else if (output >= 10) {
+      output = 'B';
+    } else if (output >= 5) {
+      output = 'C+';
+    } else if (output >= 0) {
+      output = 'C';
+    } else {
+      output = 'F';
+    }
+    $scope.consumptionBehaviorScore = output;
 
   };
 
-  $scope.consumptionBehaviorScoreMessage = function(){
+  $scope.consumptionBehaviorScoreMessage = function() {
 
   };
 
@@ -52,7 +87,7 @@ angular.module('app.analyze', [])
     };
 
     //Default recommendating strength
-    if($scope.consumptionBehaviorScore === 'A+'){
+    if($scope.consumptionBehaviorScore() === 'A+'){
       strength = -2;
     } else if ($scope.consumptionBehaviorScore === 'A') {
       strength = -1;

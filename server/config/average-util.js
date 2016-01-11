@@ -4,14 +4,14 @@ var Data = require('../userSubmissions/model.js')
 var averages = {
   income: 100000,
   rent: 1200,
-  transportation: 0,
+  transportation: 70,
   eatingout: 15,
   groceries: 35,
   clothes: 40,
   hygiene: 20,
   travel: 1000,
   entertainment: 100,
-  gym: 0
+  gym: 40
 };
 // number of entries in the database defaults to the one Alex Bailey entry
 var entries = 1;
