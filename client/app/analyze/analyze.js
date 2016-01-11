@@ -68,8 +68,22 @@ angular.module('app.analyze', [])
 
   };
 
-  $scope.consumptionBehaviorScoreMessage = function() {
-
+  $scope.generateConsumptionBehaviorScoreMessage = function(){
+    if($scope.consumptionBehaviorScore === 'A+') {
+      return 'Excellent! You are likely saving a good amount of money even after tax.'
+    } else if ($scope.consumptionBehaviorScore === 'A') {
+      return 'Great! You are likely saving some money even after tax.'
+    } else if ($scope.consumptionBehaviorScore === 'B+') {
+      return 'Good! You are likely on budget and may be able to save a little as well.'
+    } else if ($scope.consumptionBehaviorScore === 'B') {
+      return 'You should consider improving your consumption behavior. You are likely just on budget and probably won\'t be able to save any money.'
+    } else if ($scope.consumptionBehaviorScore === 'C+') {
+      return 'You should improve your consumption behavior. You might be on deficit after tax.'
+    } else if ($scope.consumptionBehaviorScore === 'C') {
+      return 'You should improve your consumption behavior. You are likely on deficit after tax.'
+    } else if ($scope.consumptionBehaviorScore === 'F') {
+      return 'You really should improve your consumption behavior. You are already on deficit before tax.'
+    }
   };
 
   $scope.recoStrength = function(spendingMore, percentage, expenditureType){
