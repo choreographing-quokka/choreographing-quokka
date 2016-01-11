@@ -21,9 +21,9 @@ module.exports = {
           console.log(user);
           return user.comparePasswords(password)
             .then(function (foundUser) {
-              if (foundUser) {
+              if (foundUser) {                
                 var token = jwt.encode(user, 'secret');
-                res.json({token: token});
+                res.json({token: token, username: user.username});
               } else {
                 return next(new Error('No user'));
               }
@@ -42,9 +42,7 @@ module.exports = {
     var password = req.body.password;    
     // check to see if user already exists 
 
-    var query = User.findOne({username : username});
-    console.log('pre', username);        
- 
+    var query = User.findOne({username : username});      
     
     findUser({username: username})    
       .then(function (user) {          
@@ -58,11 +56,10 @@ module.exports = {
           });
         }
       })
-      .then(function (user) {        
-        console.log('here', user);
+      .then(function (user) {                
         // create token to send back for auth
-        var token = jwt.encode(user, 'secret');                
-        res.json({token: token});
+        var token = jwt.encode(user, 'secret');                   
+        res.json({token: token, username: user.username});
       })
       .fail(function (error) {
         next(error);

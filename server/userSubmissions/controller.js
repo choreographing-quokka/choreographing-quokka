@@ -12,8 +12,8 @@ module.exports = {
 sendReport: function(req, res, next) {
 
     // CHNAGE BACK WHEN READY TO: req.body.username
-    var username = 'hey';
-    console.log('Generating report for ', username);
+    var username = req.body.username;
+    console.log('Generating report for ', req.body.username);
     
     findUserInput({ username: username }).
       //expect the data to be an object with the latest user entry
