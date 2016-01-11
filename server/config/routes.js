@@ -23,7 +23,7 @@ module.exports = function (app, express) {
 
   // user form submission routes
   app.post('/api/userSubmission', userSubmissionController.addData);
-  app.get('/api/analyze', userSubmissionController.sendReport);
+  app.post('/api/analyze', userSubmissionController.sendReport);
 
   // app.use(helpers.errorLogger);
   // app.use(helpers.errorHandler);
