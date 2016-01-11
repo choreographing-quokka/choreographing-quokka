@@ -1,4 +1,4 @@
-var userSubmission = angular.module('rollercost.userSubmission', []);
+var userSubmission = angular.module('rollercost.userSubmission', ['focus-if']);
 
 userSubmission.controller('UserSubmissionController', function ($scope, $http, Results){
   $scope.showCount = 0;
