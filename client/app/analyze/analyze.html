@@ -1,13 +1,18 @@
 <div ng-controller="AnalyzeController" class="analyze-page">
   <div class="resultsTitle">
     <h1>Hey {{ user }}, your results are in!</h1>
+  <div ng-repeat="recommendation in spendingCutReco">
+    <li ng-show="recommendation.strength !== undefined">
+      You {{recommendation.strength}} cut spending on {{recommendation.type}}!
+    </li>
   </div>
-  <div class="resultsIncome" ng-show="income">
+  </div>
+<!--   <div class="resultsIncome" ng-show="income">
   	<h2 id="consumption-behavior-score">Your Consumption Behavior Score is... {{consumptionBehaviorScore}}</h2>
     <p id="consumption-behavior-score-message">{{consumptionBehaviorScoreMessage}}</p>
-    <p id="cut-spending-reco"> You {{recoStrength}} cut spending on {{}} </p>
+    <p id="cut-spending-reco" ng-show="recoStrength()"> You {{recoStrength()}} cut spending on {{}} </p>
   </div>
-  <div class="results" ng-repeat="(item, value) in results">
+ -->  <div class="results" ng-repeat="(item, value) in results">
     <span class="overspend" ng-show="value[2] === 'more'">You spend {{percentDifference(value)}}% more than the average person on {{item}}</span>
     <span class="underspend" ng-show="value[2] === 'less'">You spend {{percentDifference(income)}}% less than the average person on {{item}}</span>
   </div>
