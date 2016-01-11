@@ -44,11 +44,11 @@ angular.module('app.analyze', [])
     }
     var strength;
     var recoStrengthOptions = {
-      4: 'must',
-      3: 'really should',
-      2: 'should',
-      1: 'may consider',
-      0: 'could still'
+      4: 'must cut',
+      3: 'really should cut',
+      2: 'should cut',
+      1: 'might consider cutting',
+      0: 'could still cut'
     };
 
     //Default recommendating strength
