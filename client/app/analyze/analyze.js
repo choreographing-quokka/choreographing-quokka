@@ -27,7 +27,12 @@ angular.module('app.analyze', [])
       });    
   };
 
-  var calculateGrade = function () {
+
+  $scope.percentDifference = function(tuple) {
+    return Math.round((Math.abs(tuple[0] - tuple[1]) / tuple[1]) * 100)
+  }
+
+  $scope.calculateConsumptionBehaviorScore = function() {
     var prorate = {
       rent: 12,
       transportation: 52, //52.1429
@@ -41,20 +46,29 @@ angular.module('app.analyze', [])
     }
     var output = 0
     for (var item in $scope.results) {
-      output += $scope.results[item][0] * prorate[item];
+      output += (typeof $scope.results[item][0] === 'number' ? $scope.results[item][0] * prorate[item] : 0);
     }
-    // outline grades
-  }
-
-  $scope.percentDifference = function(tuple) {
-    return Math.round((Math.abs(tuple[0] - tuple[1]) / tuple[1]) * 100)
-  }
-
-  $scope.consumptionBehaviorScore = function(){
+    var output = ($scope.income - output) / $scope.income * 100;
+    if (output >= 40) {
+      output = 'A+';
+    } else if (output >= 30) {
+      output = 'A';
+    } else if (output >= 20) {
+      output = 'B+';
+    } else if (output >= 10) {
+      output = 'B';
+    } else if (output >= 5) {
+      output = 'C+';
+    } else if (output >= 0) {
+      output = 'C';
+    } else {
+      output = 'F';
+    }
+    $scope.consumptionBehaviorScore = output;
 
   };
 
-  $scope.consumptionBehaviorScoreMessage = function(){
+  $scope.consumptionBehaviorScoreMessage = function() {
 
   };
 
@@ -73,7 +87,7 @@ angular.module('app.analyze', [])
     };
 
     //Default recommendating strength
-    if($scope.consumptionBehaviorScore === 'A+'){
+    if($scope.consumptionBehaviorScore() === 'A+'){
       strength = -2;
     } else if ($scope.consumptionBehaviorScore === 'A') {
       strength = -1;
