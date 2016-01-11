@@ -3,10 +3,10 @@
     <h1>Hey {{user}}, your results are in!</h1>
   </div>
   <div class="resultsIncome" ng-show="income">
-  	<h2>Your ${{income[0]}} income is {{percentDifference(income)}}% {{income.more}} than average</h2>
+  	<h2>Your ${{income[0]}} income is {{percentDifference(income)}}% {{income[2]}} than average</h2>
   </div>
-  <div class="results" ng-repeat="item, value in results">
-    <span class="overspend" ng-show="value.more === 'more'">You spend {{percentDifference(value)}}% more than the average person on {{item}}</span>
-    <span class="underspend" ng-show="value.more === 'less'">You spend {{percentDifference(income)}}% less than the average person on {{item}}</span>
+  <div class="results" ng-repeat="(item, value) in results">
+    <span class="overspend" ng-show="value[2] === 'more'">You spend {{percentDifference(value)}}% more than the average person on {{item}}</span>
+    <span class="underspend" ng-show="value[2] === 'less'">You spend {{percentDifference(income)}}% less than the average person on {{item}}</span>
   </div>
 </div>

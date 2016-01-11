@@ -20,8 +20,8 @@ angular.module('app.analyze', [])
       });    
   };
 
-  $socpe.percentDifference = function(tuple) {
-    Math.abs(tuple[0] - tuple[1]) / tuple[1] * 100
+  $scope.percentDifference = function(tuple) {
+    return Math.round(Math.abs(tuple[0] - tuple[1]) / tuple[1] * 100)
   }
 
   loadResults();
