@@ -11,22 +11,22 @@ app.config(function ($routeProvider, $httpProvider) {
     .when('/signin', {
       templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
-      authenticate: false
+      //authenticate: true
     })
     .when('/signup', {
       templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
-      authenticate: false
+      //authenticate: false
     })
     .when('/home', {
       templateUrl: '/home',
       controller: '#',
-      authenticate: false
+      //authenticate: true
     })
     .when('/start', {
       templateUrl: 'app/userSubmission/userSubmission.html',
       controller: 'UserSubmissionController',
-      authenticate: false
+      //authenticate: true
     })
     .when('/analyze', {
       templateUrl: 'app/analyze/analyze.html',
@@ -54,9 +54,9 @@ app.config(function ($routeProvider, $httpProvider) {
 })
 // redirect to the signin page if user tries to go to a protected page and not logged in
 .run(function ($rootScope, $location, Auth) {
-  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-    if (/*next.$$route && next.$$route.authenticate &&*/ !Auth.isAuth() ) {
-      $location.path('/signin');
-    }
-  });
+  //$rootScope.$on('$routeChangeStart', function (evt, next, current) {
+    //if (/*next.$$route && next.$$route.authenticate &&*/ !Auth.isAuth() ) {
+    //  $location.path('/signin');
+   // }
+ // });
 });

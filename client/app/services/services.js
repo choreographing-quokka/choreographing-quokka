@@ -32,7 +32,7 @@ angular.module('app.services', [])
       console.log(username);
       return $http({
         url: 'api/analyze', // URL for now
-        method: 'POST'
+        method: 'POST',
         data: username
       });
     }
