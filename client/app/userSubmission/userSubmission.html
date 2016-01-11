@@ -3,7 +3,7 @@
 Processing your request...!
 </div>
 
-<form name="userInput" class="user-input" ng-submit="submitData()" novalidate>
+<form name="userInput" class="user-input" ng-submit="submitData()"  novalidate>
   <div class="userSubmissionView" ng-show="showCount === 0">
     <div class="userSubmission-prompt-container">
     <div class="userSubmission-prompt">"What is your annual income?"</div>
@@ -11,6 +11,7 @@ Processing your request...!
               type="number"
               name="income"
               ng-model="data.income" 
+              focus-if="showCount === 0"
               required>
       <a href=""><div ng-show="userInput.income.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -24,7 +25,8 @@ Processing your request...!
       <input class="user-input-field"
               type="string" 
               name="zipcode"
-              ng-model="data.zipcode" 
+              ng-model="data.zipcode"
+              focus-if="showCount === 1"
               required>
       <a href=""><div ng-show="userInput.zipcode.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -65,7 +67,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="age"
-              ng-model="data.age" 
+              ng-model="data.age"
+              focus-if="showCount === 3"
               required>
       <a href=""><div ng-show="userInput.age.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -82,7 +85,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="rent"
-              ng-model="data.rent" 
+              ng-model="data.rent"
+              focus-if="showCount === 4"
               required>
       <a href=""><div ng-show="userInput.age.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -99,7 +103,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="transportation"
-              ng-model="data.transportation" 
+              ng-model="data.transportation"
+              focus-if="showCount === 5"
               required>
       <a href=""><div ng-show="userInput.transportation.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -116,7 +121,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="eatingout"
-              ng-model="data.eatingout" 
+              ng-model="data.eatingout"
+              focus-if="showCount === 6"
               required>
       <a href=""><div ng-show="userInput.eatingout.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -133,7 +139,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="groceries"
-              ng-model="data.groceries" 
+              ng-model="data.groceries"
+              focus-if="showCount === 7"
               required>
       <a href=""><div ng-show="userInput.groceries.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -150,7 +157,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="clothes"
-              ng-model="data.clothes" 
+              ng-model="data.clothes"
+              focus-if="showCount === 8"
               required>
       <a href=""><div ng-show="userInput.clothes.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -167,7 +175,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="hygiene"
-              ng-model="data.hygiene" 
+              ng-model="data.hygiene"
+              focus-if="showCount === 9"
               required>
       <a href=""><div ng-show="userInput.hygiene.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -184,7 +193,8 @@ Processing your request...!
       <input class="user-input-field"
               type="number"
               name="travel"
-              ng-model="data.travel" 
+              ng-model="data.travel"
+              focus-if="showCount === 10"
               required>
       <a href=""><div ng-show="userInput.travel.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -201,7 +211,8 @@ Processing your request...!
     <input class="user-input-field"
             type="number"
             name="entertainment"
-            ng-model="data.entertainment" 
+            ng-model="data.entertainment"
+            focus-if="showCount === 11"
             required>
     <a href=""><div ng-show="userInput.entertainment.$error.required === false" class="next-button" ng-click="nextPrompt()">
       Next
@@ -218,7 +229,8 @@ Processing your request...!
     <input class="user-input-field"
             type="number"
             name="gym"
-            ng-model="data.gym" 
+            ng-model="data.gym"
+            focus-if="showCount === 12"
             required>
     <a href=""><div ng-show="userInput.gym.$error.required === false" class="next-button" ng-click="nextPrompt()">
       Next
@@ -235,7 +247,8 @@ Processing your request...!
     <input class="user-input-field"
             type="string"
             name="username"
-            ng-model="data.username" 
+            ng-model="data.username"
+            focus-if="showCount === 13"
             required>
     <a href=""><div ng-show="userInput.username.$error.required === false" class="next-button" ng-click="nextPrompt()">
 
