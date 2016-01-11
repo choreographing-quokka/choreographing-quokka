@@ -22,7 +22,7 @@ angular.module('app.services', [])
   var getResults = function () {
     return $http({
       url: 'api/analyze', // URL for now
-      method: 'GET'
+      method: 'GET'      
     });
   };
 

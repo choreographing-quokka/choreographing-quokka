@@ -5,12 +5,14 @@ var findUserData = Q.nbind(UserSubmission.findOne, UserSubmission);
 var createUserSubmission = Q.nbind(UserSubmission.create, UserSubmission);
 
 var findUserInput = Q.nbind(UserSubmission.findOne, UserSubmission);
+var utils = require('../config/average-util.js');
 
 module.exports = {
 
 sendReport: function(req, res, next) {
 
-    var username = req.body.username;
+    // CHNAGE BACK WHEN READY TO: req.body.username
+    var username = 'hey';
     console.log('Generating report for ', username);
     
     findUserInput({ username: username }).
@@ -21,15 +23,28 @@ sendReport: function(req, res, next) {
           next(new Error('No past submission found from this user'));
         } else {
           var userData = data;
-          var averageData = util.getAverages();
+          var averageData = utils.getAverages();          
           console.log('averageData is...', averageData);
+          // remove this when averageData is working 
+          averageData = {
+            income: 55,
+            rent:55,
+            transportation:55,
+            restaurants:55,
+            groceries: 55,
+            clothes: 55,
+            hygiene: 55,
+            travel: 55,
+            entertainment: 55,
+            gym:55
+          };
 
           //report tuple index 0 is the user data and index 1 is the average
           var report = {
             income: [userData.income, averageData.income],
             rent: [userData.rent, averageData.rent],
             transportation: [userData.transportation, averageData.transportation],
-            restaurants: [userData.restaurants, averageData.restaurants],
+            eatingout: [userData.restaurants, averageData.restaurants],
             groceries: [userData.groceries, averageData.groceries],
             clothes: [userData.clothes, averageData.clothes],
             hygiene: [userData.hygiene, averageData.hygiene],
@@ -42,13 +57,13 @@ sendReport: function(req, res, next) {
         }
       }).
       fail(function (error) {
+        console.log('report send failed becasue:', error);
         res.send(500);
       })
   },
 
     // post info acquired from front in (in form of JSON)
-  addData: function (req, res, next) {
-    console.log('Posting info: ' + req.body.gender);
+  addData: function (req, res, next) {    
 
     // ******** Find if user already exists  ********
     // findUserData({username: req.body.username})
