@@ -19,7 +19,7 @@ angular.module('app.services', [])
 
 .factory('Results', function ($http) {
   
-  var username = null;
+  var username = window.localStorage.username;
 
   var updateUser = function (user) {
     console.log(user);
@@ -31,14 +31,14 @@ angular.module('app.services', [])
   }
 
   var getResults = function () {
+    data = {username: username};
     if (username === null) {
       console.log("CANNOT get results without user");
-    } else {
-      console.log(username);
+    } else {      
       return $http({
         url: 'api/analyze', // URL for now
         method: 'POST',
-        data: username
+        data: data
       });
     }
   };

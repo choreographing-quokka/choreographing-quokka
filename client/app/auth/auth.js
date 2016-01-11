@@ -2,7 +2,7 @@ angular.module('app.auth', [])
 // ADD BACK 'Auth' AS ARG ON LINE3
 .controller('AuthController', function ($scope, $window, $location, $http, Auth) {
   
-  $scope.user = {};
+  $scope.user = { };
   $scope.user.username = '';
   $scope.user.password = '';
   $scope.error = '';
@@ -12,8 +12,9 @@ angular.module('app.auth', [])
     // use sendOff function to send to backend    
 
     $scope.sendOff($scope.user, 'signin')
-      .then(function (token) {
-        $window.localStorage.setItem('com.rollercost', token);
+      .then(function (resp) {        
+        $window.localStorage.setItem('com.rollercost', resp.token);
+        $window.localStorage.setItem('username', resp.username);
         $location.path('/start');
       })
       .catch(function (error) {
@@ -23,11 +24,11 @@ angular.module('app.auth', [])
   };
 
   $scope.signup = function () {
-    
+    console.log('hihi');
     $scope.sendOff($scope.user, 'signup')
-      .then(function (token) {
-        console.log(token);
-        $window.localStorage.setItem('com.rollercost', token);
+      .then(function (resp) {        
+        $window.localStorage.setItem('com.rollercost', resp.token);
+        $window.localStorage.setItem('username', resp.username);        
         $location.path('/start');
       })
       .catch(function (error) {
@@ -48,7 +49,7 @@ angular.module('app.auth', [])
       data: user
     })
     .then(function (resp) {
-      return resp.data.token;
+      return resp.data;
     });
   }
 });
