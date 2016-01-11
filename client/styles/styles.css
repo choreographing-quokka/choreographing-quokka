@@ -92,12 +92,16 @@ a:visited {
 .userSubmissionView {
   color: white;
   font-size: 25px;
-  width: 400px;
+  width: 480px;
   background-color: skyblue;
   margin-left: 25%;
   margin-top: 50px;
   padding: 40px 40px 40px 40px;
   border-radius: 10px;
+},
+.userSubmissionView:before, .userSubmissionView:before, .userInput {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 .userSubmissionConfirmationView {
