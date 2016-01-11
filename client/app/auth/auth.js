@@ -2,7 +2,7 @@ angular.module('app.auth', [])
 // ADD BACK 'Auth' AS ARG ON LINE3
 .controller('AuthController', function ($scope, $window, $location, $http, Auth) {
   
-  $scope.user = {};
+  $scope.user = { };
   $scope.user.username = '';
   $scope.user.password = '';
   $scope.error = '';
