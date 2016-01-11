@@ -9,7 +9,7 @@ userSubmission.controller('UserSubmissionController', function ($scope, $http, R
   };
   $scope.previousPrompt = function(){
     $scope.showCount--;
-  }
+  };
   $scope.submitData = function(){
     $scope.showCount = -1;
     $scope.loading = true;
@@ -22,4 +22,19 @@ userSubmission.controller('UserSubmissionController', function ($scope, $http, R
       });
     Results.updateUser($scope.data.username);
   };
+  //Allow hitting enter key to see the next prompt, given there is no input error
+  $scope.enterNext = function(inputValid, keyCode){
+    if(inputValid && keyCode === 13){
+      $scope.nextPrompt();
+    };
+  }
+  //Prevent form submission upon hitting the enter key
+  $(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
 });

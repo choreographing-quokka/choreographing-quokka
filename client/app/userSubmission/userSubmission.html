@@ -12,6 +12,7 @@ Processing your request...!
               name="income"
               ng-model="data.income" 
               focus-if="showCount === 0"
+              ng-keyup="enterNext(userInput.income.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.income.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -27,6 +28,7 @@ Processing your request...!
               name="zipcode"
               ng-model="data.zipcode"
               focus-if="showCount === 1"
+              ng-keyup="enterNext(userInput.zipcode.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.zipcode.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -69,6 +71,7 @@ Processing your request...!
               name="age"
               ng-model="data.age"
               focus-if="showCount === 3"
+              ng-keyup="enterNext(userInput.age.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.age.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -87,8 +90,9 @@ Processing your request...!
               name="rent"
               ng-model="data.rent"
               focus-if="showCount === 4"
+              ng-keyup="enterNext(userInput.rent.$valid, $event.keyCode)"
               required>
-      <a href=""><div ng-show="userInput.age.$error.required === false" class="next-button" ng-click="nextPrompt()">
+      <a href=""><div ng-show="userInput.rent.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
       </div></a>
       <a href=""><div class="next-button" ng-click="previousPrompt()">
@@ -105,6 +109,7 @@ Processing your request...!
               name="transportation"
               ng-model="data.transportation"
               focus-if="showCount === 5"
+              ng-keyup="enterNext(userInput.transportation.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.transportation.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -123,6 +128,7 @@ Processing your request...!
               name="eatingout"
               ng-model="data.eatingout"
               focus-if="showCount === 6"
+              ng-keyup="enterNext(userInput.eatingout.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.eatingout.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -141,6 +147,7 @@ Processing your request...!
               name="groceries"
               ng-model="data.groceries"
               focus-if="showCount === 7"
+              ng-keyup="enterNext(userInput.groceries.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.groceries.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -159,6 +166,7 @@ Processing your request...!
               name="clothes"
               ng-model="data.clothes"
               focus-if="showCount === 8"
+              ng-keyup="enterNext(userInput.clothes.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.clothes.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -177,6 +185,7 @@ Processing your request...!
               name="hygiene"
               ng-model="data.hygiene"
               focus-if="showCount === 9"
+              ng-keyup="enterNext(userInput.hygiene.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.hygiene.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -195,6 +204,7 @@ Processing your request...!
               name="travel"
               ng-model="data.travel"
               focus-if="showCount === 10"
+              ng-keyup="enterNext(userInput.travel.$valid, $event.keyCode)"
               required>
       <a href=""><div ng-show="userInput.travel.$error.required === false" class="next-button" ng-click="nextPrompt()">
         Next
@@ -213,6 +223,7 @@ Processing your request...!
             name="entertainment"
             ng-model="data.entertainment"
             focus-if="showCount === 11"
+            ng-keyup="enterNext(userInput.entertainment.$valid, $event.keyCode)"
             required>
     <a href=""><div ng-show="userInput.entertainment.$error.required === false" class="next-button" ng-click="nextPrompt()">
       Next
@@ -231,6 +242,7 @@ Processing your request...!
             name="gym"
             ng-model="data.gym"
             focus-if="showCount === 12"
+            ng-keyup="enterNext(userInput.gym.$valid, $event.keyCode)"
             required>
     <a href=""><div ng-show="userInput.gym.$error.required === false" class="next-button" ng-click="nextPrompt()">
       Next
@@ -249,6 +261,7 @@ Processing your request...!
             name="username"
             ng-model="data.username"
             focus-if="showCount === 13"
+            ng-keyup="enterNext(userInput.username.$valid, $event.keyCode)"
             required>
     <a href=""><div ng-show="userInput.username.$error.required === false" class="next-button" ng-click="nextPrompt()">
 
