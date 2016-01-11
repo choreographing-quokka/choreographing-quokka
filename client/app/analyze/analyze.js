@@ -1,9 +1,9 @@
 angular.module('app.analyze', []) 
 
 .controller('AnalyzeController', function ($scope, Results) {
-  $scope.results = {groceries: [100, 120, 'less'], gym: [150, 90, 'more']};
-  $scope.user = 'Alex' //Results.getUser(); // for testing 
-  $scope.income = [120000, 60000, 'more'];
+  $scope.results = {};
+  $scope.user = Results.getUser(); // for testing 
+  $scope.income = null;
   var loadResults = function () {
     Results.getResults()
       .then(function(resp) {
@@ -24,5 +24,5 @@ angular.module('app.analyze', [])
     return Math.round(Math.abs(tuple[0] - tuple[1]) / tuple[1] * 100)
   }
 
-  //loadResults();
+  loadResults();
 });
