@@ -9,7 +9,7 @@ var utils = require('../config/average-util.js');
 
 module.exports = {
 
-sendReport: function(req, res, next) {
+  sendReport: function(req, res, next) {
 
     // CHNAGE BACK WHEN READY TO: req.body.username
     var username = 'hey';
@@ -66,23 +66,20 @@ sendReport: function(req, res, next) {
   addData: function (req, res, next) {    
 
     // ******** Find if user already exists  ********
-    // findUserData({username: req.body.username})
-    //   .then(function (match) {
-    //     if (match) {
-    //       console.log('exists');
-    //       // Update the current user's information
-    //       // Jota: this might not actually update the database, but just a copy of what's grabbed by the database.
-    //       // match = req.body;
-    //       // ------- otherwise --------          
-    //       match.update(req.body);
-    //       match.save(function (err, savedData) {
-    //         if (err) {
-    //           next(err);
-    //         } else {
-    //           console.log('updated data');
-    //         }
-    //       });
-    //     } else {          
+    findUserData({username: req.body.username})
+      .then(function (match) {
+        if (match) {
+          console.log('exists: ' + match);
+          // Update the current user's information
+          match.update(req.body);
+          match.save(function (err, savedData) {
+            if (err) {
+              next(err);
+            } else {
+              console.log('updated data');
+            }
+          });
+        } else {          
           // creates a new data-point in the userData Schema, but MAY NOT BE SAVED
           // the req.body may not be an object yet, might be a JSON string
           var newData = req.body;
@@ -94,9 +91,8 @@ sendReport: function(req, res, next) {
             }, function(err) {
               console.log('DB submission error:', err);
             })
-            
-      //   }
-      // })
-  }
+        }
+      })
+  },
 
 };
