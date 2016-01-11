@@ -25,4 +25,4 @@ var dataSchema = new mongoose.Schema({
   entertainment: Number
 });
 
-module.exports = mongoose.model( 'userSubmission', dataSchema);
+module.exports = mongoose.model('userSubmission', dataSchema);
