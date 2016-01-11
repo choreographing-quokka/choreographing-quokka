@@ -3,7 +3,7 @@
     <h1>Hey {{ user }}, your results are in!</h1>
   <div ng-repeat="recommendation in spendingCutReco">
     <li ng-show="recommendation.strength !== undefined">
-      You {{recommendation.strength}} spending on {{recommendation.type}}!
+      You <strong>{{recommendation.strength}}</strong> spending on <strong>{{recommendation.type}}</strong>
     </li>
   </div>
   </div>
