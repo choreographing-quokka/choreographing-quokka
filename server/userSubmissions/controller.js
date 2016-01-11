@@ -63,14 +63,9 @@ module.exports = {
   },
 
     // post info acquired from front in (in form of JSON)
-<<<<<<< 123bcf35c29d182da9498a53133de581e4937c1b
-  addData: function (req, res, next) {    
-
-=======
   addData: function (req, res, next) {
     console.log('Posting info for user: ' + req.body.username);
     var username = req.body.username;
->>>>>>> feat/userSubmission addData updates existing users
     // ******** Find if user already exists  ********
     findUserData({username: req.body.username})
       .then(function (match) {
