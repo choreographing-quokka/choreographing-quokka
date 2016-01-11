@@ -19,11 +19,23 @@ angular.module('app.services', [])
 
 .factory('Results', function ($http) {
   
+  var username = null;
+
+  var updateUser = function (user) {
+    username = user;
+  };
+
   var getResults = function () {
-    return $http({
-      url: 'api/analyze', // URL for now
-      method: 'GET'      
-    });
+    if (username === null) {
+      console.log("CANNOT get results without user");
+    } else {
+      console.log(username);
+      return $http({
+        url: 'api/analyze', // URL for now
+        method: 'POST'
+        data: username
+      });
+    }
   };
 
   return {

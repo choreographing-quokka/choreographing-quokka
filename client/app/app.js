@@ -21,12 +21,12 @@ app.config(function ($routeProvider, $httpProvider) {
     .when('/home', {
       templateUrl: '/home',
       controller: '#',
-      authenticate: true
+      authenticate: false
     })
     .when('/start', {
       templateUrl: 'app/userSubmission/userSubmission.html',
       controller: 'UserSubmissionController',
-      authenticate: true
+      authenticate: false
     })
     .when('/analyze', {
       templateUrl: 'app/analyze/analyze.html',
