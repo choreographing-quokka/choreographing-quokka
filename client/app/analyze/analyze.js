@@ -4,6 +4,7 @@ angular.module('app.analyze', [])
   $scope.results = {};
   $scope.user = $window.localStorage.username // for testing 
   $scope.income = null;
+  $scope.grade = null;
   var loadResults = function () {
     Results.getResults()
       .then(function(resp) {
@@ -19,11 +20,31 @@ angular.module('app.analyze', [])
       	$scope.income = results.income;
         delete results.income;
         $scope.results = results;
+        $scope.grade = calculateGrade();
       })
       .catch(function (error) {
       	console.log(error);
       });    
   };
+
+  var calculateGrade = function () {
+    var prorate = {
+      rent: 12,
+      transportation: 52, //52.1429
+      eatingout: 52,
+      groceries: 52,
+      clothes: 12,
+      hygiene: 12,
+      travel: 1,
+      entertainment: 12,
+      gym: 12
+    }
+    var output = 0
+    for (var item in $scope.results) {
+      output += $scope.results[item][0] * prorate[item];
+    }
+    // outline grades
+  }
 
   $scope.percentDifference = function(tuple) {
     return Math.round((Math.abs(tuple[0] - tuple[1]) / tuple[1]) * 100)
