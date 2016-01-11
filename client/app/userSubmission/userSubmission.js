@@ -19,9 +19,7 @@ userSubmission.controller('UserSubmissionController', function ($scope, $http, R
         //if post request successful, reset the view to the initial one
         $scope.loading = false;
         $scope.showCount = 0;
-        Results.updateUser($scope.data.username);
-        console.log($scope.data);
       });
-
+    Results.updateUser($scope.data.username);
   };
 });

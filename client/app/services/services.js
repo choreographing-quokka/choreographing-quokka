@@ -22,7 +22,9 @@ angular.module('app.services', [])
   var username = null;
 
   var updateUser = function (user) {
+    console.log(user);
     username = user;
+
   };
 
   var getResults = function () {
@@ -39,7 +41,8 @@ angular.module('app.services', [])
   };
 
   return {
-    getResults: getResults
+    getResults: getResults,
+    updateUser: updateUser
   };
 });
 
