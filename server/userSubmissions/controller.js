@@ -8,7 +8,7 @@ var findUserInput = Q.nbind(UserSubmission.findOne, UserSubmission);
 
 module.exports = {
 
-sendReport: function(req, res, next) {
+  sendReport: function(req, res, next) {
 
     var username = req.body.username;
     console.log('Generating report for ', username);
@@ -51,23 +51,20 @@ sendReport: function(req, res, next) {
     console.log('Posting info: ' + req.body.gender);
 
     // ******** Find if user already exists  ********
-    // findUserData({username: req.body.username})
-    //   .then(function (match) {
-    //     if (match) {
-    //       console.log('exists');
-    //       // Update the current user's information
-    //       // Jota: this might not actually update the database, but just a copy of what's grabbed by the database.
-    //       // match = req.body;
-    //       // ------- otherwise --------          
-    //       match.update(req.body);
-    //       match.save(function (err, savedData) {
-    //         if (err) {
-    //           next(err);
-    //         } else {
-    //           console.log('updated data');
-    //         }
-    //       });
-    //     } else {          
+    findUserData({username: req.body.username})
+      .then(function (match) {
+        if (match) {
+          console.log('exists: ' + match);
+          // Update the current user's information
+          match.update(req.body);
+          match.save(function (err, savedData) {
+            if (err) {
+              next(err);
+            } else {
+              console.log('updated data');
+            }
+          });
+        } else {          
           // creates a new data-point in the userData Schema, but MAY NOT BE SAVED
           // the req.body may not be an object yet, might be a JSON string
           var newData = req.body;
@@ -79,9 +76,8 @@ sendReport: function(req, res, next) {
             }, function(err) {
               console.log('DB submission error:', err);
             })
-            
-      //   }
-      // })
-  }
+        }
+      })
+  },
 
 };
