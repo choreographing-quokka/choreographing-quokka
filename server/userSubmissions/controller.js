@@ -44,11 +44,11 @@ sendReport: function(req, res, next) {
       fail(function (error) {
         res.send(500);
       })
-  }
+  },
 
     // post info acquired from front in (in form of JSON)
   addData: function (req, res, next) {
-    console.log('Posting info: ' + req.body);
+    console.log('Posting info: ' + req.body.gender);
 
     // ******** Find if user already exists  ********
     // findUserData({username: req.body.username})
@@ -71,14 +71,17 @@ sendReport: function(req, res, next) {
           // creates a new data-point in the userData Schema, but MAY NOT BE SAVED
           // the req.body may not be an object yet, might be a JSON string
           var newData = req.body;
-          createUserSubmission(newData )
+          createUserSubmission(newData)
             .then(function(user) {
+              console.log('sending back');
               res.status(201);
-              res.send(user);
+              res.send(user);              
+            }, function(err) {
+              console.log('DB submission error:', err);
             })
             
       //   }
       // })
-  },
+  }
 
 };

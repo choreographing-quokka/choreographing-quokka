@@ -9,19 +9,18 @@ var dataSchema = new mongoose.Schema({
   },  
   income: Number,
   // Demographics
-  zipcode: Number,
-  gender: Number,
+  zipcode: String,
+  gender: String,
   age: Number, 
 
   // Data
   rent: Number,
   transportation: Number,
-  restaurants: Number,
+  eatingout: Number,
   groceries: Number,
   clothes: Number,
   hygiene: Number,
-  travel: Number,
-  alcohol: Number,
+  travel: Number,  
   gym: Number,
   entertainment: Number
 });
