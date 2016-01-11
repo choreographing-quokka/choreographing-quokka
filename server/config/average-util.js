@@ -1,7 +1,20 @@
 var Data = require('../userSubmissions/model.js')
 
-var averages = null;
-var entries = 0;
+// seed averages to get database going based on Alex Bailey
+var averages = {
+  income: 100000,
+  rent: 1200,
+  transportation: 0,
+  eatingout: 15,
+  groceries: 35,
+  clothes: 40,
+  hygiene: 20,
+  travel: 1000,
+  entertainment: 100,
+  gym: 0
+};
+// number of entries in the database defaults to the one Alex Bailey entry
+var entries = 1;
 
 exports.getAverages = function () {
   if (averages) {
@@ -28,17 +41,12 @@ exports.createAverages = function(callback) {
       for (var item in sums) {
         averages[item] = sums[item] / entries;
       }
-    } 
+    }
   });
 };
 
 exports.updateAverages = function (submission) {
-  if (averages) {
-  	for (var item in averages) {
-  	  averages[item] = (averages[item] * entries + submission[item]) / (entries + 1);
-  	}
-  // return averages
-  } else {
-    console.log('no averages to update');
+  for (var item in averages) {
+  	averages[item] = (averages[item] * entries + submission[item]) / (entries + 1);
   }
 };

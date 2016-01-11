@@ -25,20 +25,6 @@ sendReport: function(req, res, next) {
           var userData = data;
           var averageData = utils.getAverages();          
           console.log('averageData is...', averageData);
-          // remove this when averageData is working 
-          averageData = {
-            income: 55,
-            rent:55,
-            transportation:55,
-            restaurants:55,
-            groceries: 55,
-            clothes: 55,
-            hygiene: 55,
-            travel: 55,
-            entertainment: 55,
-            gym:55
-          };
-
           //report tuple index 0 is the user data and index 1 is the average
           var report = {
             income: [userData.income, averageData.income],
@@ -86,6 +72,7 @@ sendReport: function(req, res, next) {
           // creates a new data-point in the userData Schema, but MAY NOT BE SAVED
           // the req.body may not be an object yet, might be a JSON string
           var newData = req.body;
+          utils.updateAverages(req.body);
           createUserSubmission(newData)
             .then(function(user) {
               console.log('sending back');
