@@ -1,8 +1,8 @@
 angular.module('app.analyze', []) 
 
-.controller('AnalyzeController', function ($scope, Results) {
+.controller('AnalyzeController', function ($scope, Results, $window) {
   $scope.results = {};
-  $scope.user = Results.getUser(); // for testing 
+  $scope.user = $window.localStorage.username // for testing 
   $scope.income = null;
   var loadResults = function () {
     Results.getResults()
