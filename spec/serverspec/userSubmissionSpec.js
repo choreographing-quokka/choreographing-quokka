@@ -20,7 +20,7 @@ var xbeforeEach = function(){};
 /************************************************************/
 
 
-describe('', function() {
+describe('', function( ) {
 
   beforeEach(function() {
     // log out currently signed in user
