@@ -1,6 +1,6 @@
 var userSubmission = angular.module('rollercost.userSubmission', []);
 
-userSubmission.controller('UserSubmissionController', function($scope, $http){
+userSubmission.controller('UserSubmissionController', function ($scope, $http, Results){
   $scope.showCount = 0;
   $scope.loading = false;
   $scope.data = {};
@@ -19,7 +19,7 @@ userSubmission.controller('UserSubmissionController', function($scope, $http){
         //if post request successful, reset the view to the initial one
         $scope.loading = false;
         $scope.showCount = 0;
-        console.log($scope.data);
       });
+    Results.updateUser($scope.data.username);
   };
 });

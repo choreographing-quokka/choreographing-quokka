@@ -11,12 +11,12 @@ app.config(function ($routeProvider, $httpProvider) {
     .when('/signin', {
       templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
-      authenticate: false
+      //authenticate: true
     })
     .when('/signup', {
       templateUrl: 'app/auth/auth.html',
       controller: 'AuthController',
-      authenticate: false
+      //authenticate: false
     })
     .when('/home', {
       templateUrl: '/home',
@@ -31,7 +31,7 @@ app.config(function ($routeProvider, $httpProvider) {
     .when('/analyze', {
       templateUrl: 'app/analyze/analyze.html',
       controller: 'AnalyzeController',
-      // authenticate: true
+      authenticate: true
     })
     .otherwise({
       redirectTo: '/'
