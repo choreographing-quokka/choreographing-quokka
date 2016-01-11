@@ -4,23 +4,25 @@ angular.module('app.analyze', [])
   $scope.results = {};
   $scope.user = $window.localStorage.username // for testing 
   $scope.income = null;
-  $scope.grade = null;
+  $scope.consumptionBehaviorScore = null;
+
   var loadResults = function () {
     Results.getResults()
       .then(function(resp) {
-      	var results = resp.data;
+        var results = resp.data;
+      	$scope.income = results.income;
+        $scope.income[2] = ($scope.income[0] - $scope.income[1]) >= 0 ? 'more' : 'less';
+        delete results.income;
+        $scope.results = results;
         $scope.spendingCutReco = [];
-        console.log(results);
+        $scope.consumptionBehaviorScore = $scope.calculateConsumptionBehaviorScore();
         for (var key in results) {
           results[key].push(results[key][0] - results[key][1] >= 0 ? 'more' : 'less');
           var recommendation = $scope.recoStrength(results[key][2], $scope.percentDifference(results[key]) , key);
           console.log(recommendation);
           $scope.spendingCutReco.push(recommendation);
         }
-      	$scope.income = results.income;
-        delete results.income;
-        $scope.results = results;
-        $scope.grade = calculateGrade();
+        $scope.generateConsumptionBehaviorScoreMessage();
       })
       .catch(function (error) {
       	console.log(error);
@@ -44,11 +46,13 @@ angular.module('app.analyze', [])
       entertainment: 12,
       gym: 12
     }
-    var output = 0
+    var expenditures = 0
     for (var item in $scope.results) {
-      output += (typeof $scope.results[item][0] === 'number' ? $scope.results[item][0] * prorate[item] : 0);
+      expenditures += (typeof $scope.results[item][0] === 'number' ? $scope.results[item][0] * prorate[item] : 0);
     }
-    var output = ($scope.income - output) / $scope.income * 100;
+
+    var output = ($scope.income[0] - expenditures) / $scope.income[0] * 100;
+    console.log('output is...', output);
     if (output >= 40) {
       output = 'A+';
     } else if (output >= 30) {
@@ -64,25 +68,25 @@ angular.module('app.analyze', [])
     } else {
       output = 'F';
     }
-    $scope.consumptionBehaviorScore = output;
+    return output;
 
   };
 
   $scope.generateConsumptionBehaviorScoreMessage = function(){
     if($scope.consumptionBehaviorScore === 'A+') {
-      return 'Excellent! You are likely saving a good amount of money even after tax.'
+      return $scope.consumptionBehaviorScoreMessage = 'Excellent! You are likely saving a good amount of money even after tax.'
     } else if ($scope.consumptionBehaviorScore === 'A') {
-      return 'Great! You are likely saving some money even after tax.'
+      return $scope.consumptionBehaviorScoreMessage = 'Great! You are likely saving some money even after tax.'
     } else if ($scope.consumptionBehaviorScore === 'B+') {
-      return 'Good! You are likely on budget and may be able to save a little as well.'
+      return $scope.consumptionBehaviorScoreMessage = 'Good! You are likely on budget and may be able to save a little as well.'
     } else if ($scope.consumptionBehaviorScore === 'B') {
-      return 'You should consider improving your consumption behavior. You are likely just on budget and probably won\'t be able to save any money.'
+      return $scope.consumptionBehaviorScoreMessage = 'You should consider improving your consumption behavior. You are likely just on budget and probably won\'t be able to save any money.'
     } else if ($scope.consumptionBehaviorScore === 'C+') {
-      return 'You should improve your consumption behavior. You might be on deficit after tax.'
+      return $scope.consumptionBehaviorScoreMessage = 'You should improve your consumption behavior. You might be on deficit after tax.'
     } else if ($scope.consumptionBehaviorScore === 'C') {
-      return 'You should improve your consumption behavior. You are likely on deficit after tax.'
+      return $scope.consumptionBehaviorScoreMessage = 'You should improve your consumption behavior. You are likely on deficit after tax.'
     } else if ($scope.consumptionBehaviorScore === 'F') {
-      return 'You really should improve your consumption behavior. You are already on deficit before tax.'
+      return $scope.consumptionBehaviorScoreMessage = 'You really should improve your consumption behavior. You are already on deficit before tax.'
     }
   };
 
@@ -101,7 +105,7 @@ angular.module('app.analyze', [])
     };
 
     //Default recommendating strength
-    if($scope.consumptionBehaviorScore() === 'A+'){
+    if($scope.consumptionBehaviorScore === 'A+'){
       strength = -2;
     } else if ($scope.consumptionBehaviorScore === 'A') {
       strength = -1;
