@@ -13,7 +13,7 @@ userSubmission.controller('UserSubmissionController', function($scope, $http){
   $scope.submitData = function(){
     $scope.showCount = -1;
     $scope.loading = true;
-    console.log($scope.data);
+    console.log('data', $scope.data);
     $http.post('/api/userSubmission', $scope.data).
       success(function(){
         //if post request successful, reset the view to the initial one
