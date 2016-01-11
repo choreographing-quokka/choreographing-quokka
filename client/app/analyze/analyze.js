@@ -26,7 +26,7 @@ angular.module('app.analyze', [])
   };
 
   $scope.percentDifference = function(tuple) {
-    return Math.round(Math.abs(tuple[0] - tuple[1]) / tuple[1] * 100)
+    return Math.round((Math.abs(tuple[0] - tuple[1]) / tuple[1]) * 100)
   }
 
   $scope.consumptionBehaviorScore = function(){
