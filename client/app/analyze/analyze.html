@@ -3,7 +3,7 @@
     <h1>Hey {{ user }}, your results are in!</h1>
     <div id='consumption-behavior-report'>
       <div class="resultsIncome" ng-show="income">
-      	<h2>Your Consumption Behavior Score is...</h2> 
+        <h2>Your Consumption Behavior Score is...</h2> 
         <div id="consumption-behavior-score">{{consumptionBehaviorScore}}</div>
         <p id="consumption-behavior-score-message">{{consumptionBehaviorScoreMessage}}</p>
       </div>
@@ -13,6 +13,9 @@
         </li>
       </div>
     </div>
+  </div>
+  <div class = "score-image" >
+  <img src='{{imageSrc}}'/>
   </div>
   <div class="results" ng-repeat="(item, value) in results">
     <span class="overspend" ng-show="value[2] === 'more'">You spend {{percentDifference(value)}}% more than the average person on {{item}}</span>

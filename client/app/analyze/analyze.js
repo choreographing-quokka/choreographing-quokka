@@ -5,6 +5,7 @@ angular.module('app.analyze', [])
   $scope.user = $window.localStorage.username // for testing 
   $scope.income = null;
   $scope.consumptionBehaviorScore = null;
+  $scope.imageSrc = '';
 
   var loadResults = function () {
     Results.getResults()
@@ -23,6 +24,7 @@ angular.module('app.analyze', [])
           $scope.spendingCutReco.push(recommendation);
         }
         $scope.generateConsumptionBehaviorScoreMessage();
+        console.log($scope.imageSrc)
       })
       .catch(function (error) {
       	console.log(error);
@@ -74,18 +76,25 @@ angular.module('app.analyze', [])
 
   $scope.generateConsumptionBehaviorScoreMessage = function(){
     if($scope.consumptionBehaviorScore === 'A+') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/a'
       return $scope.consumptionBehaviorScoreMessage = 'Excellent! You are likely saving a good amount of money even after tax.'
     } else if ($scope.consumptionBehaviorScore === 'A') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/a'
       return $scope.consumptionBehaviorScoreMessage = 'Great! You are likely saving some money even after tax.'
     } else if ($scope.consumptionBehaviorScore === 'B+') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/b'
       return $scope.consumptionBehaviorScoreMessage = 'Good! You are likely on budget and may be able to save a little as well.'
     } else if ($scope.consumptionBehaviorScore === 'B') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/b'
       return $scope.consumptionBehaviorScoreMessage = 'You should consider improving your consumption behavior. You are likely just on budget and probably won\'t be able to save any money.'
     } else if ($scope.consumptionBehaviorScore === 'C+') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/c'
       return $scope.consumptionBehaviorScoreMessage = 'You should improve your consumption behavior. You might be on deficit after tax.'
     } else if ($scope.consumptionBehaviorScore === 'C') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/c'
       return $scope.consumptionBehaviorScoreMessage = 'You should improve your consumption behavior. You are likely on deficit after tax.'
     } else if ($scope.consumptionBehaviorScore === 'F') {
+      $scope.imageSrc = 'https://s3-us-west-2.amazonaws.com/rollercost/f'
       return $scope.consumptionBehaviorScoreMessage = 'You really should improve your consumption behavior. You are already on deficit before tax.'
     }
   };
