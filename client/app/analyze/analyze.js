@@ -1,11 +1,15 @@
+// Module for the results page
+
 angular.module('app.analyze', []) 
 
 .controller('AnalyzeController', function ($scope, Results, $window) {
   $scope.results = {};
-  $scope.user = $window.localStorage.username // for testing 
+  $scope.user = $window.localStorage.username 
   $scope.income = null;
   $scope.consumptionBehaviorScore = null;
 
+  // Uses getResults service to load the users data from the server as well as average data
+  // results is an object where key is item type and value is tuple of [userdata, averagedata]
   var loadResults = function () {
     Results.getResults()
       .then(function(resp) {
@@ -19,7 +23,6 @@ angular.module('app.analyze', [])
         for (var key in results) {
           results[key].push(results[key][0] - results[key][1] >= 0 ? 'more' : 'less');
           var recommendation = $scope.recoStrength(results[key][2], $scope.percentDifference(results[key]) , key);
-          console.log(recommendation);
           $scope.spendingCutReco.push(recommendation);
         }
         $scope.generateConsumptionBehaviorScoreMessage();
@@ -29,11 +32,12 @@ angular.module('app.analyze', [])
       });    
   };
 
-
+  // Returns the percentage difference between the user data and the average
   $scope.percentDifference = function(tuple) {
     return Math.round((Math.abs(tuple[0] - tuple[1]) / tuple[1]) * 100)
   }
 
+  // Consumptions score sums expenditures and then returns a grade based on percent difference between income and expenditures
   $scope.calculateConsumptionBehaviorScore = function() {
     var prorate = {
       rent: 12,
@@ -71,6 +75,7 @@ angular.module('app.analyze', [])
     return output;
 
   };
+
 
   $scope.generateConsumptionBehaviorScoreMessage = function(){
     if($scope.consumptionBehaviorScore === 'A+') {
