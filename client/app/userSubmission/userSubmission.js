@@ -1,6 +1,6 @@
 var userSubmission = angular.module('rollercost.userSubmission', ['focus-if']);
 
-userSubmission.controller('UserSubmissionController', function ($scope, $http, $window, Results){
+userSubmission.controller('UserSubmissionController', function ($scope, $http, $window, $location, Results){
   $scope.showCount = 0;
   $scope.loading = false;
   $scope.data = {};
@@ -20,6 +20,7 @@ userSubmission.controller('UserSubmissionController', function ($scope, $http, $
         //if post request successful, reset the view to the initial one
         $scope.loading = false;
         $scope.showCount = 0;
+        $location.path('/analyze');
       });
     Results.updateUser($scope.data.username);
   };

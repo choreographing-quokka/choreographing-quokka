@@ -30,7 +30,7 @@ module.exports = {
             income: [userData.income, averageData.income],
             rent: [userData.rent, averageData.rent],
             transportation: [userData.transportation, averageData.transportation],
-            eatingout: [userData.restaurants, averageData.restaurants],
+            eatingout: [userData.eatingout, averageData.eatingout],
             groceries: [userData.groceries, averageData.groceries],
             clothes: [userData.clothes, averageData.clothes],
             hygiene: [userData.hygiene, averageData.hygiene],

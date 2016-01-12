@@ -18,9 +18,9 @@ app.config(function ($routeProvider, $httpProvider) {
       controller: 'AuthController',
       authenticate: false
     })
-    .when('/home', {
-      templateUrl: '/home',
-      controller: '#',
+    .when('/', {
+      templateUrl: 'app/auth/auth.html',
+      controller: '',
       authenticate: true
     })
     .when('/start', {
