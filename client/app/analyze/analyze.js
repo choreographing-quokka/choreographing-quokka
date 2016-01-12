@@ -1,9 +1,8 @@
-// module to handle the analyze page
 angular.module('app.analyze', []) 
 
 .controller('AnalyzeController', function ($scope, Results, $window) {
   $scope.results = {};
-  $scope.user = $window.localStorage.username
+  $scope.user = $window.localStorage.username // for testing 
   $scope.income = null;
   $scope.grade = null;
   var loadResults = function () {
@@ -21,6 +20,7 @@ angular.module('app.analyze', [])
       	$scope.income = results.income;
         delete results.income;
         $scope.results = results;
+        $scope.grade = calculateGrade();
       })
       .catch(function (error) {
       	console.log(error);
