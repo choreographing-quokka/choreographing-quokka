@@ -23,8 +23,8 @@ angular.module('app.auth', [])
       });
   };
 
-  $scope.signup = function () {
-    console.log('hihi');
+  $scope.signup = function () {    
+    $('.dismissBtn').click();    
     $scope.sendOff($scope.user, 'signup')
       .then(function (resp) {        
         $window.localStorage.setItem('com.rollercost', resp.token);
