@@ -1,16 +1,17 @@
 var userSubmission = angular.module('rollercost.userSubmission', ['focus-if']);
 
-userSubmission.controller('UserSubmissionController', function ($scope, $http, Results){
+userSubmission.controller('UserSubmissionController', function ($scope, $http, $window, Results){
   $scope.showCount = 0;
   $scope.loading = false;
   $scope.data = {};
   $scope.nextPrompt = function(){
     $scope.showCount++;
+    $scope.data.username = $window.localStorage.username;    
   };
   $scope.previousPrompt = function(){
     $scope.showCount--;
   };
-  $scope.submitData = function(){
+  $scope.submitData = function(){    
     $scope.showCount = -1;
     $scope.loading = true;
     console.log('data', $scope.data);
