@@ -177,3 +177,8 @@ a:visited {
   margin-right: 300px;
   color: red;
 }
+
+.score-image{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
