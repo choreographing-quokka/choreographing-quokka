@@ -18,7 +18,9 @@ SOLUTION
 
 The app solves the problem by giving a user a one time survey to gather data (low user cost), as well as rewarding them with immediate feedback on their spending habits. We can store and manipulate this data server side with a database
 
-Costumer Quote
+COSTUMER QUOTE
 
-I enjoyed the reassurance this app gave me that my spending habits are pretty good overall. 
+"I enjoyed the reassurance this app gave me that my spending habits are pretty good overall."
+
+
 
