@@ -1,0 +1,5 @@
+deployment notes
+
+- app is live at: https://frozen-badlands-5741.herokuapp.com/
+- commits to the org's master branch will automatically re-deploy
+- contact Henry (hlyford11@gmail.com) if you need admin heroku access
